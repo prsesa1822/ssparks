@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sarah Sparks | AI and Data Analysis Portfolio</title>
+    <style>
+      :root {
+        --ink: #f4f7fb;
+        --muted: #9fb2c8;
+        --paper: #070b12;
+        --panel: #0d1420;
+        --panel-2: #101b2b;
+        --line: #22344d;
+        --cyan: #23d7ff;
+        --green: #6affb5;
+        --violet: #9b7cff;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+        background-image:
+          linear-gradient(rgba(35, 215, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(35, 215, 255, 0.05) 1px, transparent 1px),
+          radial-gradient(circle at 15% 10%, rgba(35, 215, 255, 0.16), transparent 32%),
+          radial-gradient(circle at 85% 0%, rgba(155, 124, 255, 0.14), transparent 34%);
+        background-size: 42px 42px, 42px 42px, auto, auto;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        width: min(1120px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 22px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .brand {
+        display: grid;
+        gap: 2px;
+      }
+
+      .brand strong {
+        font-size: 1rem;
+        letter-spacing: 0;
+        color: var(--white);
+      }
+
+      .brand span {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: flex-end;
+      }
+
+      nav a,
+      .button {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0 14px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.92rem;
+        background: rgba(13, 20, 32, 0.82);
+        color: var(--ink);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+      }
+
+      .button.primary {
+        background: var(--cyan);
+        color: #031018;
+        border-color: var(--cyan);
+        box-shadow: 0 0 24px rgba(35, 215, 255, 0.28);
+      }
+
+      .hero {
+        width: min(1120px, calc(100% - 36px));
+        margin: 8px auto 0;
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr);
+        gap: 34px;
+        align-items: center;
+        padding: 28px 0 42px;
+        position: relative;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.35rem, 6vw, 5.7rem);
+        line-height: 0.96;
+        letter-spacing: 0;
+        color: var(--white);
+        text-shadow: 0 0 34px rgba(35, 215, 255, 0.28);
+      }
+
+      .lede {
+        margin: 22px 0 0;
+        max-width: 58ch;
+        color: var(--muted);
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .actions {
+        margin-top: 26px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero-visual {
+        display: block;
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow:
+          0 24px 80px rgba(0, 0, 0, 0.55),
+          0 0 42px rgba(35, 215, 255, 0.16);
+      }
+
+      main {
+        flex: 1;
+      }
+
+      .band {
+        border-top: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(13, 20, 32, 0.96), rgba(7, 11, 18, 0.96));
+      }
+
+      .section {
+        width: min(1120px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 40px 0;
+      }
+
+      .section h2 {
+        margin: 0 0 18px;
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        letter-spacing: 0;
+      }
+
+      .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .resource {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 20px;
+        background: rgba(13, 20, 32, 0.92);
+        display: grid;
+        align-content: space-between;
+        min-height: 214px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
+      }
+
+      .resource[data-accent="teal"] {
+        border-top: 5px solid var(--cyan);
+      }
+
+      .resource[data-accent="gold"] {
+        border-top: 5px solid var(--green);
+      }
+
+      .resource[data-accent="rose"] {
+        border-top: 5px solid var(--violet);
+      }
+
+      .resource h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        letter-spacing: 0;
+      }
+
+      .resource p {
+        margin: 10px 0 18px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .thumbs {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .thumbs img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      footer {
+        width: min(1120px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 24px 0 32px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 840px) {
+        header,
+        .hero {
+          width: min(100% - 28px, 680px);
+        }
+
+        header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        nav {
+          justify-content: flex-start;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .resource-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .thumbs {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 460px) {
+        .actions,
+        nav {
+          display: grid;
+          grid-template-columns: 1fr;
+          width: 100%;
+        }
+
+        .button,
+        nav a {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <div class="brand">
+          <strong>Sarah Sparks</strong>
+          <span>AI and Data Analysis Portfolio</span>
+        </div>
+        <nav aria-label="Portfolio links">
+          <a href="assets/sarah_sparks_resume.pdf">Resume</a>
+          <a href="assets/Presentation_Compressed.pdf">Presentation</a>
+          <a href="Ai%20and%20data%20analysis.pdf">Analysis PDF</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div>
+            <h1>Sarah Sparks</h1>
+            <p class="lede">
+              Portfolio materials for AI, data analysis, and applied research
+              work, collected in one place for quick review.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="assets/sarah_sparks_resume.pdf">Open resume</a>
+              <a class="button" href="assets/Presentation_Compressed.pdf">Open presentation</a>
+            </div>
+          </div>
+          <img
+            class="hero-visual"
+            src="Ai%20and%20data%20analysis%20images/AI_Project_Overall_Summary.png"
+            alt="AI project overall summary"
+          />
+        </section>
+
+        <div class="band">
+          <section class="section" aria-labelledby="resources-title">
+            <h2 id="resources-title">Featured Materials</h2>
+            <div class="resource-grid">
+              <article class="resource" data-accent="teal">
+                <div>
+                  <h3>Resume</h3>
+                  <p>Sarah Sparks resume PDF for role and background review.</p>
+                </div>
+                <a class="button" href="assets/sarah_sparks_resume.pdf">View PDF</a>
+              </article>
+
+              <article class="resource" data-accent="gold">
+                <div>
+                  <h3>Presentation</h3>
+                  <p>Compressed presentation PDF for sharing the main portfolio deck.</p>
+                </div>
+                <a class="button" href="assets/Presentation_Compressed.pdf">View PDF</a>
+              </article>
+
+              <article class="resource" data-accent="rose">
+                <div>
+                  <h3>AI and Data Analysis Report</h3>
+                  <p>Generated PDF report and supporting visuals for the analysis project.</p>
+                </div>
+                <a class="button" href="Ai%20and%20data%20analysis.pdf">View PDF</a>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <section class="section" aria-labelledby="visuals-title">
+          <h2 id="visuals-title">Project Visuals</h2>
+          <div class="thumbs">
+            <img src="Ai%20and%20data%20analysis%20images/page_01.png" alt="Portfolio visual page 1" />
+            <img src="Ai%20and%20data%20analysis%20images/page_02.png" alt="Portfolio visual page 2" />
+            <img src="Ai%20and%20data%20analysis%20images/page_03.png" alt="Portfolio visual page 3" />
+            <img src="Ai%20and%20data%20analysis%20images/page_04.png" alt="Portfolio visual page 4" />
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        Sarah Sparks portfolio materials.
+      </footer>
+    </div>
+  </body>
+</html>

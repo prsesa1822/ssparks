@@ -1,44 +1,26 @@
-# AI and Data Analysis Portfolio
+# Sarah Sparks Customer Operations Portfolio
 
-Dark, tech-forward static portfolio site for Sarah Sparks. The live site is designed for GitHub Pages and includes:
+Static GitHub Pages portfolio for Sarah Sparks, focused on Customer Operations, CRM administration, process improvement, analytics, and AI-assisted workflow design.
 
-- A self-contained portfolio homepage
-- A curated web resume page
-- A curated data case study page based on the supplied presentation
-- An AI and data analysis snapshot section
-- An optional extraction helper for local PDFs
+The live site consolidates Sarah's portfolio work into one place:
+
+- Homepage overview for hiring managers
+- Resume page
+- Customer Operations experience page
+- AI-Assisted CRM Data Governance Assessment
+- Dragon's Hoard Tracker, a fantasy-themed career CRM and knowledge management system
+- Death Care in Data, a supporting analytics and business communication project
 
 ## Hosted Files
 
 - `index.html` is the portfolio homepage
 - `resume.html` is the curated web resume
-- `presentation.html` is the curated data case study
-- `generate_pdf_pages.py` is an optional helper for extracting local PDFs into starter HTML
-- `requirements.txt` lists Python dependencies
-
-## Local Asset Notes
-
-The original PDFs and generated image/PDF report are kept locally in the working folder. They can be added later with Git or another binary upload route:
-
-- `assets/sarah_sparks_resume.pdf`
-- `assets/Presentation_Compressed.pdf`
-- `Ai and data analysis.pdf`
-- `Ai and data analysis images/`
+- `customer-success-portfolio.html` covers customer operations experience
+- `crm-governance-assessment.html` is the flagship CRM governance case study
+- `dragon-hoard-tracker.html` is the featured Dragon's Hoard Tracker project page
+- `death-care-data.html` is the supporting analytics project
+- `style.css` contains the shared site styling
 
 ## GitHub Pages
 
 GitHub Pages is configured to publish from the `main` branch root. The homepage is `index.html`.
-
-## Setup
-
-Install the Python dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Optional PDF extraction helper:
-
-```bash
-python generate_pdf_pages.py
-```

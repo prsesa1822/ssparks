@@ -6,17 +6,17 @@ The live site consolidates Sarah's portfolio work into one place:
 
 - Homepage overview for hiring managers
 - Resume page
-- Customer Operations experience page
-- AI-Assisted CRM Data Governance Assessment
+- CRM & Customer Operations page combining customer operations experience with the CRM governance assessment
 - Dragon's Hoard Tracker, a fantasy-themed career CRM and knowledge management system
 - Death Care in Data, a supporting analytics and business communication project
+- About Me link to Organized Chaos Ops
 
 ## Hosted Files
 
 - `index.html` is the portfolio homepage
 - `resume.html` is the curated web resume
-- `customer-success-portfolio.html` covers customer operations experience
-- `crm-governance-assessment.html` is the flagship CRM governance case study
+- `customer-success-portfolio.html` is the combined CRM & Customer Operations page
+- `crm-governance-assessment.html` redirects old CRM case study links to the combined page
 - `dragon-hoard-tracker.html` is the featured Dragon's Hoard Tracker project page
 - `death-care-data.html` is the supporting analytics project
 - `style.css` contains the shared site styling

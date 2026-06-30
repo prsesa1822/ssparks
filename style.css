@@ -56,6 +56,13 @@ li + li { margin-top: 8px; }
 .band { background: #fffdf9; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .evidence { padding: 12px; margin: 24px auto 0; max-width: min(100%, 980px); }
 .evidence img, .evidence svg { width: 100%; height: auto; display: block; border-radius: 9px; border: 1px solid var(--line); box-shadow: 0 18px 44px rgba(28,38,42,.11); background: #fff; cursor: zoom-in; }
+#evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
+#evidence .section-head { grid-column: 1 / -1; margin-bottom: 4px; }
+#evidence .evidence { width: 100%; max-width: none; margin: 0; padding: 10px; }
+#evidence .evidence:first-of-type { grid-column: 1 / -1; width: min(720px, 100%); justify-self: center; }
+#evidence .evidence img { max-height: 320px; object-fit: contain; }
+#evidence .evidence:nth-of-type(2) img { width: auto; max-width: 100%; max-height: 420px; margin: 0 auto; }
+#evidence .evidence:nth-of-type(5) img { max-height: 260px; }
 .caption { margin: 12px 0 0; color: var(--muted); font-size: .95rem; }
 .timeline { display: grid; gap: 14px; }
 .step { display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start; }
@@ -68,5 +75,5 @@ li + li { margin-top: 8px; }
 footer { padding: 34px 0 42px; color: var(--muted); border-top: 1px solid rgba(222,216,207,.7); }
 footer a, .link { color: var(--teal); font-weight: 800; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
-@media (max-width: 860px) { .hero, .grid-2, .grid-3, .metrics { grid-template-columns: 1fr; } .hero { padding: 52px 0; } }
-@media (max-width: 560px) { header, .wrap, footer { width: min(100% - 28px, 680px); } nav, .actions, .button { width: 100%; } nav, .actions { display: grid; } h1 { font-size: clamp(2.45rem, 14vw, 3.4rem); } }
+@media (max-width: 860px) { .hero, .grid-2, .grid-3, .metrics, #evidence { grid-template-columns: 1fr; } .hero { padding: 52px 0; } #evidence .evidence:first-of-type { grid-column: auto; width: 100%; } }
+@media (max-width: 560px) { header, .wrap, footer { width: min(100% - 28px, 680px); } nav, .actions, .button { width: 100%; } nav, .actions { display: grid; } h1 { font-size: clamp(2.45rem, 14vw, 3.4rem); } #evidence .evidence img { max-height: 280px; } #evidence .evidence:nth-of-type(2) img { max-height: 360px; } }

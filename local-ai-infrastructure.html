@@ -51,6 +51,55 @@
           <h2>From location event to local AI workspace.</h2>
           <p>The system keeps the phone-side trigger lightweight, centralizes logic in n8n, sends practical Telegram reminders, and runs the AI layer locally through Open WebUI and Ollama.</p>
         </div>
+        <figure class="evidence architecture-chart">
+          <svg viewBox="0 0 1180 690" role="img" aria-label="Architecture chart showing Tasker geofence triggering n8n, Telegram, Docker-hosted Open WebUI, Ollama models, and RAG knowledge collections">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7d83" /></marker>
+            </defs>
+            <rect width="1180" height="690" rx="18" fill="#fffdf9" />
+            <g class="chart-layer">
+              <rect x="38" y="42" width="1104" height="146" rx="18" />
+              <text x="66" y="86" class="chart-title">Trigger layer</text>
+              <text x="66" y="118" class="chart-subtitle">Phone geofenced to workplace</text>
+              <rect x="90" y="142" width="288" height="62" rx="12" class="chart-node teal" />
+              <text x="234" y="167" class="chart-node-title">Tasker</text>
+              <text x="234" y="191" class="chart-node-subtitle">400m enter or exit event</text>
+              <line x1="378" y1="173" x2="586" y2="173" class="chart-arrow" />
+              <text x="482" y="158" class="chart-label">Webhook</text>
+              <rect x="586" y="142" width="304" height="62" rx="12" class="chart-node teal" />
+              <text x="738" y="167" class="chart-node-title">n8n webhook</text>
+              <text x="738" y="191" class="chart-node-subtitle">Receives location event</text>
+              <line x1="890" y1="173" x2="918" y2="173" class="chart-arrow" />
+              <rect x="918" y="142" width="224" height="62" rx="12" class="chart-node green" />
+              <text x="1030" y="167" class="chart-node-title">Telegram Bot API</text>
+              <text x="1030" y="191" class="chart-node-subtitle">Sends chat alert</text>
+            </g>
+            <g class="chart-layer">
+              <rect x="38" y="260" width="1104" height="146" rx="18" />
+              <text x="66" y="304" class="chart-title">Container host</text>
+              <text x="66" y="336" class="chart-subtitle">Sibling services on the same local Docker host</text>
+              <rect x="185" y="354" width="264" height="62" rx="12" class="chart-node teal" />
+              <text x="317" y="392" class="chart-node-title">n8n container</text>
+              <line x1="449" y1="385" x2="810" y2="385" class="chart-arrow" />
+              <rect x="810" y="354" width="272" height="62" rx="12" class="chart-node amber" />
+              <text x="946" y="392" class="chart-node-title">Open WebUI container</text>
+            </g>
+            <g class="chart-layer">
+              <rect x="38" y="478" width="1104" height="146" rx="18" />
+              <text x="66" y="522" class="chart-title">Local AI layer</text>
+              <text x="66" y="554" class="chart-subtitle">No external AI API calls for inference</text>
+              <line x1="835" y1="416" x2="543" y2="566" class="chart-arrow" />
+              <line x1="944" y1="416" x2="833" y2="566" class="chart-arrow" />
+              <rect x="280" y="568" width="290" height="62" rx="12" class="chart-node green" />
+              <text x="425" y="593" class="chart-node-title">Ollama models</text>
+              <text x="425" y="617" class="chart-node-subtitle">Llama 3.1, Gemma 3, Phi-4, Qwen3</text>
+              <rect x="690" y="568" width="290" height="62" rx="12" class="chart-node teal" />
+              <text x="835" y="593" class="chart-node-title">RAG knowledge</text>
+              <text x="835" y="617" class="chart-node-subtitle">2 project collections</text>
+            </g>
+          </svg>
+          <figcaption class="caption">Architecture view: Tasker geofence to n8n webhook, Telegram alerting, Docker-hosted services, and local Ollama-backed AI with RAG collections.</figcaption>
+        </figure>
         <div class="grid-3">
           <article class="card"><h3>Trigger</h3><p>Tasker watches a 400m workplace geofence and sends an entry or exit webhook when the location event fires.</p></article>
           <article class="card" data-accent="teal"><h3>Automation</h3><p>n8n receives the webhook and calls the Telegram Bot API to send clock-in and clock-out reminders.</p></article>
@@ -73,9 +122,19 @@
         <img src="assets/local-ai-telegram-proof.webp" alt="Telegram bot alerts showing clock-in, clock-out, battery, and bedtime reminders" loading="lazy" />
         <figcaption class="caption">Telegram output proof: the automation turns events into visible reminders, with the internal Chaos Command personality left intact.</figcaption>
       </figure>
-      <figure class="evidence">
-        <img src="assets/local-ai-docker-containers.webp" alt="Docker Desktop showing n8n and Open WebUI containers running" loading="lazy" />
-        <figcaption class="caption">Container host: n8n and Open WebUI running as sibling services with their own exposed ports.</figcaption>
+      <figure class="evidence docker-proof">
+        <div class="docker-card" role="img" aria-label="Clean Docker proof card listing two running containers: n8n and open-webui">
+          <div class="docker-top"><strong>Docker Desktop</strong><span>Containers</span></div>
+          <div class="docker-metrics"><span><strong>0.00%</strong> CPU usage</span><span><strong>14.91 GB</strong> memory available</span><span><strong>2</strong> running items</span></div>
+          <table>
+            <thead><tr><th>Status</th><th>Name</th><th>Image</th><th>Port(s)</th></tr></thead>
+            <tbody>
+              <tr><td><span class="status-dot"></span>Running</td><td>n8n</td><td>n8nio/n8n</td><td>5678:5678</td></tr>
+              <tr><td><span class="status-dot"></span>Running</td><td>open-webui</td><td>open-webui</td><td>3000:8080</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption class="caption">Container host: a cleaned-up proof view of n8n and Open WebUI running as sibling services with their own exposed ports.</figcaption>
       </figure>
       <figure class="evidence">
         <img src="assets/local-ai-openwebui-knowledge.webp" alt="Open WebUI knowledge page showing two RAG collections" loading="lazy" />

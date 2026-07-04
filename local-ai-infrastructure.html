@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Local AI Infrastructure & Automation Pipeline | Sarah Sparks</title>
+  <title>Local AI Infrastructure & Personal Automation | Sarah Sparks</title>
   <link rel="stylesheet" href="style.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4ZPCLXSCS"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N4ZPCLXSCS');</script>
@@ -27,8 +27,8 @@
     <section class="wrap hero">
       <div>
         <span class="eyebrow">Featured Systems Project</span>
-        <h1>Local AI Infrastructure & Automation Pipeline</h1>
-        <p class="lede">A self-hosted automation pipeline connecting a physical-world phone trigger to n8n, Telegram, Docker, Open WebUI, Ollama, local LLMs, and RAG knowledge collections without depending on a cloud AI provider for inference.</p>
+        <h1>Local AI Infrastructure & Personal Automation</h1>
+        <p class="lede">A self-hosted local AI workspace paired with a practical mobile automation: Tasker sends clock-in and clock-out reminders through Telegram, while Docker-hosted Open WebUI and Ollama provide local LLM access and RAG knowledge collections without relying on a cloud AI provider for inference.</p>
         <div class="actions" style="margin-top:24px">
           <a class="button primary" href="#architecture">View architecture</a>
           <a class="button" href="#evidence">See evidence</a>
@@ -36,10 +36,10 @@
       </div>
       <aside class="panel">
         <span class="eyebrow">Project Signal</span>
-        <h3>End-to-end systems thinking</h3>
-        <p>This project demonstrates physical-world triggers, webhook integration, workflow orchestration, containerized services, local model hosting, and retrieval-augmented knowledge management.</p>
+        <h3>Systems thinking across personal automation and local AI</h3>
+        <p>This project demonstrates physical-world triggers, Telegram API integration, containerized services, local model hosting, and retrieval-augmented knowledge management.</p>
         <div class="chips" style="margin-top:18px">
-          <span class="chip">Tasker</span><span class="chip">Geofencing</span><span class="chip">n8n</span><span class="chip">Docker</span><span class="chip">Open WebUI</span><span class="chip">Ollama</span>
+          <span class="chip">Tasker</span><span class="chip">Geofencing</span><span class="chip">Telegram</span><span class="chip">Docker</span><span class="chip">Open WebUI</span><span class="chip">Ollama</span>
         </div>
       </aside>
     </section>
@@ -48,31 +48,27 @@
       <section class="wrap section">
         <div class="section-head">
           <span class="eyebrow">Architecture</span>
-          <h2>From location event to local AI workspace.</h2>
-          <p>The system keeps the phone-side trigger lightweight, centralizes logic in n8n, sends practical Telegram reminders, and runs the AI layer locally through Open WebUI and Ollama.</p>
+          <h2>Two practical systems: mobile reminders and local AI.</h2>
+          <p>The automation side uses Tasker as the phone-side trigger and Telegram as the notification layer. The AI side runs locally through Docker-hosted Open WebUI, Ollama models, and RAG knowledge collections.</p>
         </div>
         <figure class="evidence architecture-chart">
-          <svg viewBox="0 0 1180 690" role="img" aria-label="Architecture chart showing Tasker geofence triggering n8n, Telegram, Docker-hosted Open WebUI, Ollama models, and RAG knowledge collections">
+          <svg viewBox="0 0 1180 690" role="img" aria-label="Architecture chart showing Tasker geofence sending Telegram alerts, plus Docker-hosted Open WebUI, Ollama models, and RAG knowledge collections">
             <defs>
               <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#6b7d83" /></marker>
             </defs>
             <rect width="1180" height="690" rx="18" fill="#fffdf9" />
             <g class="chart-layer">
               <rect x="38" y="42" width="1104" height="146" rx="18" />
-              <text x="66" y="86" class="chart-title">Trigger layer</text>
+              <text x="66" y="86" class="chart-title">Reminder automation</text>
               <text x="66" y="118" class="chart-subtitle">Phone geofenced to workplace</text>
-              <rect x="90" y="142" width="288" height="62" rx="12" class="chart-node teal" />
-              <text x="234" y="167" class="chart-node-title">Tasker</text>
-              <text x="234" y="191" class="chart-node-subtitle">400m enter or exit event</text>
-              <line x1="378" y1="173" x2="586" y2="173" class="chart-arrow" />
-              <text x="482" y="158" class="chart-label">Webhook</text>
-              <rect x="586" y="142" width="304" height="62" rx="12" class="chart-node teal" />
-              <text x="738" y="167" class="chart-node-title">n8n webhook</text>
-              <text x="738" y="191" class="chart-node-subtitle">Receives location event</text>
-              <line x1="890" y1="173" x2="918" y2="173" class="chart-arrow" />
-              <rect x="918" y="142" width="224" height="62" rx="12" class="chart-node green" />
-              <text x="1030" y="167" class="chart-node-title">Telegram Bot API</text>
-              <text x="1030" y="191" class="chart-node-subtitle">Sends chat alert</text>
+              <rect x="120" y="142" width="320" height="62" rx="12" class="chart-node teal" />
+              <text x="280" y="167" class="chart-node-title">Tasker</text>
+              <text x="280" y="191" class="chart-node-subtitle">400m enter or exit event</text>
+              <line x1="440" y1="173" x2="720" y2="173" class="chart-arrow" />
+              <text x="580" y="158" class="chart-label">Sends message</text>
+              <rect x="720" y="142" width="320" height="62" rx="12" class="chart-node green" />
+              <text x="880" y="167" class="chart-node-title">Telegram Bot API</text>
+              <text x="880" y="191" class="chart-node-subtitle">Clock-in and clock-out alerts</text>
             </g>
             <g class="chart-layer">
               <rect x="38" y="260" width="1104" height="146" rx="18" />
@@ -80,6 +76,7 @@
               <text x="66" y="336" class="chart-subtitle">Sibling services on the same local Docker host</text>
               <rect x="185" y="354" width="264" height="62" rx="12" class="chart-node teal" />
               <text x="317" y="392" class="chart-node-title">n8n container</text>
+              <text x="317" y="416" class="chart-node-subtitle">Separate automation workspace</text>
               <line x1="449" y1="385" x2="810" y2="385" class="chart-arrow" />
               <rect x="810" y="354" width="272" height="62" rx="12" class="chart-node amber" />
               <text x="946" y="392" class="chart-node-title">Open WebUI container</text>
@@ -98,12 +95,12 @@
               <text x="835" y="617" class="chart-node-subtitle">2 project collections</text>
             </g>
           </svg>
-          <figcaption class="caption">Architecture view: Tasker geofence to n8n webhook, Telegram alerting, Docker-hosted services, and local Ollama-backed AI with RAG collections.</figcaption>
+          <figcaption class="caption">Architecture view: Tasker sends Telegram reminders directly, while Docker hosts the local AI workspace with Open WebUI, Ollama models, and RAG collections. n8n is shown only as a separate containerized automation workspace.</figcaption>
         </figure>
         <div class="grid-3">
-          <article class="card"><h3>Trigger</h3><p>Tasker watches a 400m workplace geofence and sends an entry or exit webhook when the location event fires.</p></article>
-          <article class="card" data-accent="teal"><h3>Automation</h3><p>n8n receives the webhook and calls the Telegram Bot API to send clock-in and clock-out reminders.</p></article>
-          <article class="card" data-accent="green"><h3>Local AI</h3><p>Docker hosts Open WebUI alongside n8n, while Ollama runs Llama 3.1 8B, Gemma 3 12B, Phi-4, and Qwen3 locally.</p></article>
+          <article class="card"><h3>Reminder trigger</h3><p>Tasker watches a 400m workplace geofence and sends the relevant clock-in or clock-out alert through Telegram when the location event fires.</p></article>
+          <article class="card" data-accent="teal"><h3>Container host</h3><p>Docker runs Open WebUI alongside a separate n8n container, giving each service its own port, lifecycle, and debugging surface.</p></article>
+          <article class="card" data-accent="green"><h3>Local AI</h3><p>Open WebUI fronts Ollama, which runs Llama 3.1 8B, Gemma 3 12B, Phi-4, and Qwen3 locally.</p></article>
         </div>
       </section>
     </div>
@@ -111,16 +108,12 @@
     <section class="wrap section" id="evidence">
       <div class="section-head">
         <span class="eyebrow">System Evidence</span>
-        <h2>Proof the pipeline is running.</h2>
-        <p>Clean screenshots from the live local setup show the workflow, bot output, container host, RAG collections, and local model inventory.</p>
+        <h2>Proof the systems are running.</h2>
+        <p>Clean screenshots from the live local setup show the Telegram reminder output, container host, RAG collections, and local model inventory.</p>
       </div>
       <figure class="evidence">
-        <img src="assets/local-ai-n8n-workflow.webp" alt="n8n workflow showing a webhook node connected to an HTTP request node" loading="lazy" />
-        <figcaption class="caption">n8n workflow canvas: a webhook trigger hands the event to an HTTP request node that calls the Telegram Bot API.</figcaption>
-      </figure>
-      <figure class="evidence">
         <img src="assets/local-ai-telegram-proof.webp" alt="Telegram bot alerts showing clock-in, clock-out, battery, and bedtime reminders" loading="lazy" />
-        <figcaption class="caption">Telegram output proof: the automation turns events into visible reminders, with the internal Chaos Command personality left intact.</figcaption>
+        <figcaption class="caption">Telegram output proof: Tasker-triggered reminders become visible clock-in and clock-out prompts, with the internal Chaos Command personality left intact.</figcaption>
       </figure>
       <figure class="evidence docker-proof">
         <div class="docker-card" role="img" aria-label="Clean Docker proof card listing two running containers: n8n and open-webui">
@@ -150,12 +143,12 @@
       <section class="wrap section">
         <div class="section-head">
           <span class="eyebrow">Workflow</span>
-          <h2>The pipeline separates trigger, logic, notification, and AI layers.</h2>
+          <h2>The project separates mobile reminders, containers, and local AI.</h2>
         </div>
         <div class="timeline">
-          <div class="step"><div class="num">1</div><div class="panel"><h3>Trigger layer</h3><p>A Tasker geofence profile watches for entry and exit from a 400m workplace radius. When the event fires, the phone sends a webhook instead of trying to own the workflow logic.</p></div></div>
-          <div class="step"><div class="num">2</div><div class="panel"><h3>Automation layer</h3><p>n8n receives the webhook and turns the raw location event into an HTTP request to the Telegram Bot API, sending clock-in or clock-out reminders to a personal Telegram bot.</p></div></div>
-          <div class="step"><div class="num">3</div><div class="panel"><h3>Container host</h3><p>n8n and Open WebUI run as independently managed Docker containers on the same host, keeping workflow orchestration separate from the AI interface.</p></div></div>
+          <div class="step"><div class="num">1</div><div class="panel"><h3>Mobile trigger</h3><p>A Tasker geofence profile watches for entry and exit from a 400m workplace radius.</p></div></div>
+          <div class="step"><div class="num">2</div><div class="panel"><h3>Telegram reminder</h3><p>When the location event fires, Tasker sends the appropriate clock-in or clock-out message through a personal Telegram bot.</p></div></div>
+          <div class="step"><div class="num">3</div><div class="panel"><h3>Container host</h3><p>Docker runs Open WebUI and a separate n8n workspace as independently managed containers on the same host.</p></div></div>
           <div class="step"><div class="num">4</div><div class="panel"><h3>Local AI layer</h3><p>Open WebUI fronts a local Ollama installation with Llama 3.1 8B, Gemma 3 12B, Phi-4, and Qwen3. Two RAG knowledge collections support grounded project-specific queries.</p></div></div>
         </div>
       </section>
@@ -167,12 +160,12 @@
         <h2>What this proves to a hiring manager.</h2>
       </div>
       <div class="grid-3">
-        <article class="card"><h3>Systems Integration</h3><p>Connected mobile automation, webhooks, workflow orchestration, and Telegram API calls into a working end-to-end process.</p></article>
-        <article class="card" data-accent="teal"><h3>Containerized Deployment</h3><p>Ran n8n and Open WebUI as sibling Docker services that can be managed, restarted, and debugged independently.</p></article>
+        <article class="card"><h3>Mobile Automation</h3><p>Used Tasker geofencing and Telegram API calls to turn a real-world location event into a useful reminder system.</p></article>
+        <article class="card" data-accent="teal"><h3>Containerized Deployment</h3><p>Ran Open WebUI and n8n as sibling Docker services that can be managed, restarted, and debugged independently.</p></article>
         <article class="card" data-accent="green"><h3>Local AI Operations</h3><p>Hosted multiple local models through Ollama and Open WebUI, keeping inference on local hardware instead of relying on external AI APIs.</p></article>
         <article class="card"><h3>RAG Knowledge Design</h3><p>Built two Open WebUI knowledge collections for project-specific documents so answers can be grounded in retrieved context.</p></article>
-        <article class="card" data-accent="teal"><h3>Debugging & Ownership</h3><p>Designed, tested, and debugged the pipeline across phone settings, local services, API requests, Docker containers, and model hosting.</p></article>
-        <article class="card" data-accent="amber"><h3>Operational Thinking</h3><p>Turned a real recurring problem into an automated reminder system with clear layers, responsibilities, and failure boundaries.</p></article>
+        <article class="card" data-accent="teal"><h3>Debugging & Ownership</h3><p>Designed, tested, and debugged phone automation, Telegram alerts, Docker containers, local services, and model hosting.</p></article>
+        <article class="card" data-accent="amber"><h3>Operational Thinking</h3><p>Turned a real recurring problem into an automated reminder system with clear responsibilities and useful failure boundaries.</p></article>
       </div>
     </section>
 
@@ -183,7 +176,7 @@
           <h2>Tools and concepts used.</h2>
         </div>
         <div class="chips">
-          <span class="chip">Tasker</span><span class="chip">Geofencing</span><span class="chip">Webhooks</span><span class="chip">n8n</span><span class="chip">Telegram Bot API</span><span class="chip">Docker</span><span class="chip">Open WebUI</span><span class="chip">Ollama</span><span class="chip">Llama 3.1 8B</span><span class="chip">Gemma 3 12B</span><span class="chip">Phi-4</span><span class="chip">Qwen3</span><span class="chip">RAG</span><span class="chip">Local LLMs</span>
+          <span class="chip">Tasker</span><span class="chip">Geofencing</span><span class="chip">Telegram Bot API</span><span class="chip">Docker</span><span class="chip">n8n</span><span class="chip">Open WebUI</span><span class="chip">Ollama</span><span class="chip">Llama 3.1 8B</span><span class="chip">Gemma 3 12B</span><span class="chip">Phi-4</span><span class="chip">Qwen3</span><span class="chip">RAG</span><span class="chip">Local LLMs</span>
         </div>
       </section>
     </div>
@@ -194,8 +187,8 @@
         <h2>External structure, engineered instead of hoped for.</h2>
       </div>
       <div class="panel">
-        <p>The practical motivation was simple: I needed a reliable external prompt for clock-in and clock-out moments, especially with ADHD making routine transitions easy to miss. The result is more than a reminder bot. It is a small but complete automation system that shows how I turn personal friction into documented, maintainable infrastructure.</p>
-        <p>The Telegram bot is internally nicknamed Chaos Command, but the portfolio-facing value is the architecture: physical trigger, webhook workflow, containerized services, local AI tooling, and RAG-backed knowledge management.</p>
+        <p>The practical motivation was simple: I needed a reliable external prompt for clock-in and clock-out moments, especially with ADHD making routine transitions easy to miss. The result is a small but useful mobile automation that turns personal friction into a documented system.</p>
+        <p>The Telegram bot is internally nicknamed Chaos Command, but the portfolio-facing value is the engineering judgment: using the right tool for the trigger, keeping local AI infrastructure self-hosted, and separating services so each part can be tested and improved independently.</p>
       </div>
     </section>
   </main>

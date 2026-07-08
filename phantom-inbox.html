@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phantom Inbox | Sarah Sparks</title>
+  <link rel="stylesheet" href="style.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4ZPCLXSCS"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N4ZPCLXSCS');</script>
+  <script defer src="analytics.js"></script>
+</head>
+<body>
+  <header>
+    <div class="brand"><strong>Sarah Sparks</strong><span>AI Operations | Automation | Customer Ops</span></div>
+    <nav aria-label="Portfolio navigation">
+      <a class="button" href="index.html">Home</a>
+      <a class="button" href="resume.html">Resume</a>
+      <a class="button active" href="phantom-inbox.html">Phantom Inbox</a>
+      <a class="button" href="local-ai-infrastructure.html">Local AI</a>
+      <a class="button" href="customer-success-portfolio.html">CRM & Customer Ops</a>
+      <a class="button" href="dragon-hoard-tracker.html">Dragon's Hoard</a>
+      <a class="button" href="https://organizedchaosops.com/" target="_blank" rel="noreferrer">About Me</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <div>
+        <span class="eyebrow">Featured AI Operations Project</span>
+        <h1>Phantom Inbox: intelligent email triage with Claude and n8n.</h1>
+        <p class="lede">An automated Gmail classification and routing pipeline that turns incoming email into structured decisions. The workflow extracts message context, asks Claude for a JSON recommendation, then routes each email to the inbox, trash, or a review label called Phantom Inbox.</p>
+        <div class="actions" style="margin-top:24px">
+          <a class="button primary" href="#system">View system design</a>
+          <a class="button" href="#lessons">Lessons learned</a>
+          <a class="button" href="#interview">Interview explanation</a>
+        </div>
+      </div>
+      <aside class="panel">
+        <span class="eyebrow">Project Signal</span>
+        <h3>AI-enabled workflow automation with real operational impact</h3>
+        <div class="metrics" style="grid-template-columns:1fr; margin-top:16px">
+          <div class="metric"><strong>15k+</strong><span>Unread emails before cleanup</span></div>
+          <div class="metric"><strong>6.6k</strong><span>Emails remaining after 24 hours</span></div>
+          <div class="metric"><strong>0</strong><span>Manual sorting steps after setup</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <div class="band">
+      <section class="wrap section">
+        <div class="section-head">
+          <span class="eyebrow">The Problem</span>
+          <h2>Too many small inbox decisions, not enough scalable structure.</h2>
+          <p>A 15,000+ message backlog made the inbox hard to trust. Important messages, promotions, spam, and review-later items were all competing for attention. Basic rules were not enough because the decision often depended on sender context, intent, and professional relevance.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><h3>Backlog pressure</h3><p>The goal was not just to delete old email. It was to create a repeatable system that could keep sorting new messages after the initial cleanup.</p></article>
+          <article class="card" data-accent="teal"><h3>Judgment layer</h3><p>Claude provided flexible classification where keyword filters were too brittle, especially for ambiguous or context-dependent messages.</p></article>
+          <article class="card" data-accent="green"><h3>Action layer</h3><p>The workflow had to execute real Gmail outcomes: keep important messages visible, move low-value messages out of the queue, or label items for later review.</p></article>
+        </div>
+      </section>
+    </div>
+
+    <section class="wrap section" id="system">
+      <div class="section-head">
+        <span class="eyebrow">System Design</span>
+        <h2>AI judgment constrained into safe workflow actions.</h2>
+        <p>The important design choice was not simply adding AI. It was using AI for flexible judgment, then forcing the response into structured JSON that n8n could parse and route deterministically.</p>
+      </div>
+      <div class="timeline">
+        <div class="step"><div class="num">1</div><div class="panel"><h3>Gmail trigger</h3><p>The workflow starts when a qualifying new email enters Gmail.</p></div></div>
+        <div class="step"><div class="num">2</div><div class="panel"><h3>Metadata extraction</h3><p>n8n extracts the subject, sender, body, and message context needed for classification.</p></div></div>
+        <div class="step"><div class="num">3</div><div class="panel"><h3>Claude classification</h3><p>Claude receives a focused prompt and returns category, confidence, action, and reasoning as structured JSON.</p></div></div>
+        <div class="step"><div class="num">4</div><div class="panel"><h3>Rules routing</h3><p>n8n parses the JSON and routes the message to the right branch based on action and confidence.</p></div></div>
+        <div class="step"><div class="num">5</div><div class="panel"><h3>Gmail action</h3><p>The workflow keeps important messages in the inbox, moves high-confidence low-value mail to trash, or applies the Phantom Inbox review label.</p></div></div>
+      </div>
+    </section>
+
+    <div class="band">
+      <section class="wrap section">
+        <div class="section-head">
+          <span class="eyebrow">Routing Logic</span>
+          <h2>Three outcomes, each with a clear operational purpose.</h2>
+        </div>
+        <div class="grid-3">
+          <article class="card" data-accent="green"><h3>Keep in Inbox</h3><p>Important, professional, or time-sensitive messages stay visible for normal review and response.</p></article>
+          <article class="card" data-accent="amber"><h3>Trash</h3><p>High-confidence promotions, spam, and low-value messages leave the active queue while retaining Gmail's normal recovery window.</p></article>
+          <article class="card" data-accent="teal"><h3>Phantom Inbox</h3><p>Review-worthy or ambiguous messages get labeled for later without competing with higher-priority work.</p></article>
+        </div>
+      </section>
+    </div>
+
+    <section class="wrap section">
+      <div class="section-head">
+        <span class="eyebrow">Technical Wins</span>
+        <h2>Practical automation work under real constraints.</h2>
+      </div>
+      <div class="grid-3">
+        <article class="card"><h3>Structured AI output</h3><p>Designed prompts that return parseable JSON so the workflow could make reliable downstream decisions.</p></article>
+        <article class="card" data-accent="teal"><h3>JSON escaping</h3><p>Raw email content broke request formatting until message bodies were safely serialized to handle newlines, quotes, and special characters.</p></article>
+        <article class="card" data-accent="green"><h3>Gmail OAuth</h3><p>Configured Google Cloud credentials, redirect behavior, test users, and secure environment variables without exposing private credential details.</p></article>
+        <article class="card"><h3>Async routing</h3><p>Used n8n Rules to branch into multiple paths based on Claude's recommendation and confidence level.</p></article>
+        <article class="card" data-accent="teal"><h3>Platform evaluation</h3><p>After spending significant time troubleshooting Railway, shifted deployment work to Render when the original platform stopped producing useful progress.</p></article>
+        <article class="card" data-accent="amber"><h3>Error recovery</h3><p>When one approach hit practical limits, changed tactics instead of forcing the same failing path repeatedly.</p></article>
+      </div>
+    </section>
+
+    <div class="band" id="lessons">
+      <section class="wrap section">
+        <div class="section-head">
+          <span class="eyebrow">Lessons Learned</span>
+          <h2>AI can accelerate debugging, but it cannot replace systems thinking.</h2>
+          <p>I spent nearly an hour troubleshooting one issue with Claude. The breakthrough came when I realized I was repeating the same test path without changing the underlying variable. The issue was not only technical; the debugging process itself had become part of the problem.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card"><h3>The realization</h3><p>If every test repeats the same hidden assumption, the tool can keep producing plausible next steps while the system keeps failing for the same reason.</p></article>
+          <article class="card" data-accent="teal"><h3>The operating lesson</h3><p>AI can speed up troubleshooting, but the human still has to validate assumptions, inspect the system, and recognize when the test strategy needs to change.</p></article>
+        </div>
+      </section>
+    </div>
+
+    <section class="wrap section">
+      <div class="section-head">
+        <span class="eyebrow">Skills Demonstrated</span>
+        <h2>What this proves to a hiring manager.</h2>
+      </div>
+      <div class="grid-3">
+        <article class="card"><h3>AI workflow design</h3><p>Used an LLM where judgment was useful and constrained its output where reliability mattered.</p></article>
+        <article class="card" data-accent="teal"><h3>API orchestration</h3><p>Coordinated Gmail, Claude, OAuth, and n8n into one operating workflow.</p></article>
+        <article class="card" data-accent="green"><h3>Operations thinking</h3><p>Turned a messy recurring problem into a system with clear inputs, rules, actions, and review boundaries.</p></article>
+        <article class="card"><h3>Debugging discipline</h3><p>Worked through formatting, authentication, callback, deployment, and routing issues without exposing private data.</p></article>
+        <article class="card" data-accent="teal"><h3>Platform judgment</h3><p>Recognized when a deployment path was consuming more time than it was worth and moved toward Render.</p></article>
+        <article class="card" data-accent="amber"><h3>Customer Ops relevance</h3><p>Shows the same habits needed in RevOps and Customer Ops: triage, prioritization, data hygiene, and process ownership.</p></article>
+      </div>
+    </section>
+
+    <div class="band" id="interview">
+      <section class="wrap section">
+        <div class="section-head">
+          <span class="eyebrow">How I'd Explain This in an Interview</span>
+          <h2>A practical AI operations system, not just an AI demo.</h2>
+        </div>
+        <div class="panel">
+          <p style="font-size:1.12rem">I used AI where flexible judgment was valuable, then constrained the output into structured JSON so the workflow could make safe, deterministic decisions. The result was not just an AI tool. It was an operational system that could classify, route, and reduce inbox noise without constant manual sorting.</p>
+          <div class="actions" style="margin-top:24px">
+            <a class="button primary" href="#">View GitHub Repo</a>
+            <a class="button" href="#">Read LinkedIn Case Study</a>
+            <span class="button" aria-disabled="true" style="opacity:.58; cursor:not-allowed">Live Demo Coming Soon</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>Sarah Sparks portfolio | <a href="mailto:ssparks1822@outlook.com">ssparks1822@outlook.com</a> | <a href="https://www.linkedin.com/in/ssparks1822/" target="_blank" rel="noreferrer">LinkedIn</a> | <a href="https://organizedchaosops.com/" target="_blank" rel="noreferrer">About Me</a></footer>
+</body>
+</html>

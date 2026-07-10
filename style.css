@@ -56,6 +56,13 @@ li + li { margin-top: 8px; }
 .band { background: #fffdf9; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .evidence { padding: 12px; margin: 24px auto 0; max-width: min(100%, 980px); }
 .evidence img, .evidence svg { width: 100%; height: auto; display: block; border-radius: 9px; border: 1px solid var(--line); box-shadow: 0 18px 44px rgba(28,38,42,.11); background: #fff; cursor: zoom-in; }
+#evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
+#evidence .section-head { grid-column: 1 / -1; margin-bottom: 4px; }
+#evidence .evidence { width: 100%; max-width: none; margin: 0; padding: 10px; }
+#evidence .evidence:first-of-type { grid-column: 1 / -1; width: min(720px, 100%); justify-self: center; }
+#evidence .evidence img { max-height: 320px; object-fit: contain; }
+#evidence .evidence:nth-of-type(2) img { width: auto; max-width: 100%; max-height: 420px; margin: 0 auto; }
+#evidence .evidence:nth-of-type(5) img { max-height: 260px; }
 .caption { margin: 12px 0 0; color: var(--muted); font-size: .95rem; }
 .timeline { display: grid; gap: 14px; }
 .step { display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start; }
@@ -68,5 +75,30 @@ li + li { margin-top: 8px; }
 footer { padding: 34px 0 42px; color: var(--muted); border-top: 1px solid rgba(222,216,207,.7); }
 footer a, .link { color: var(--teal); font-weight: 800; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
-@media (max-width: 860px) { .hero, .grid-2, .grid-3, .metrics { grid-template-columns: 1fr; } .hero { padding: 52px 0; } }
-@media (max-width: 560px) { header, .wrap, footer { width: min(100% - 28px, 680px); } nav, .actions, .button { width: 100%; } nav, .actions { display: grid; } h1 { font-size: clamp(2.45rem, 14vw, 3.4rem); } }
+@media (max-width: 860px) { .hero, .grid-2, .grid-3, .metrics, #evidence { grid-template-columns: 1fr; } .hero { padding: 52px 0; } #evidence .evidence:first-of-type { grid-column: auto; width: 100%; } }
+@media (max-width: 560px) { header, .wrap, footer { width: min(100% - 28px, 680px); } nav, .actions, .button { width: 100%; } nav, .actions { display: grid; } h1 { font-size: clamp(2.45rem, 14vw, 3.4rem); } #evidence .evidence img { max-height: 280px; } #evidence .evidence:nth-of-type(2) img { max-height: 360px; } }
+.architecture-chart { max-width: min(100%, 1180px); }
+.architecture-chart svg { cursor: default; }
+.chart-layer rect:first-child { fill: #f0ebe3; stroke: #ded8cf; stroke-width: 1.2; }
+.chart-layer:nth-of-type(3) rect:first-child { fill: #fffdf9; }
+.chart-title { fill: #172126; font: 800 28px Georgia, "Times New Roman", serif; }
+.chart-subtitle { fill: #526773; font: 18px Inter, sans-serif; }
+.chart-node { stroke: none; }
+.chart-node.teal { fill: #176d78; }
+.chart-node.green { fill: #537f67; }
+.chart-node.amber { fill: #e8692d; }
+.chart-node-title { fill: #fff; font: 900 22px Inter, sans-serif; text-anchor: middle; }
+.chart-node-subtitle { fill: #fff; font: 16px Inter, sans-serif; text-anchor: middle; }
+.chart-arrow { stroke: #6b7d83; stroke-width: 2.4; marker-end: url(#arrow); }
+.chart-label { fill: #34484f; font: 900 18px Inter, sans-serif; text-anchor: middle; }
+.docker-proof .docker-card { background: #101820; color: #e7edf2; border-radius: 9px; padding: 18px; border: 1px solid #26333d; box-shadow: 0 18px 44px rgba(28,38,42,.11); }
+.docker-top, .docker-metrics { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.docker-top strong { font-size: 1.15rem; }
+.docker-top span, .docker-metrics { color: #9fb0bd; }
+.docker-metrics { margin: 16px 0; }
+.docker-metrics strong { color: #18b6a8; }
+.docker-card table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.docker-card th, .docker-card td { padding: 12px 10px; border-bottom: 1px solid #2b3944; text-align: left; }
+.docker-card th { color: #c5d0d8; }
+.status-dot { width: 10px; height: 10px; display: inline-block; border-radius: 999px; background: #18b6a8; margin-right: 8px; }
+@media (max-width: 560px) { .docker-card { overflow-x: auto; } .docker-card table { min-width: 560px; } }

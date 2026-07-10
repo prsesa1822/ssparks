@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">Phantom Inbox n8n workflow proof</title>
+  <desc id="desc">A successful dark n8n-style workflow showing Gmail trigger, message retrieval, metadata extraction, Claude API request, AI response parsing, and routing to Important, Phantom Inbox, or Trash.</desc>
+  <defs>
+    <pattern id="stripes" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <rect width="24" height="24" fill="#151716"/>
+      <rect width="7" height="24" fill="#1d201f"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000000" flood-opacity="0.36"/>
+    </filter>
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#10b957"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#666b68"/>
+    </marker>
+    <style>
+      .top{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#f6f8f7;font-weight:900;font-size:22px}
+      .success{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#12c85e;font-weight:900;font-size:20px}
+      .muted{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#c5cbc8;font-size:19px}
+      .label{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#f5f7f6;font-weight:900;font-size:16px;text-anchor:middle}
+      .sub{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#b8c0bc;font-size:13px;text-anchor:middle}
+      .item{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#cfd6d2;font-size:14px;text-anchor:middle}
+      .node{fill:#2a2d2c;stroke:#08a84d;stroke-width:2.8;filter:url(#shadow)}
+      .target{fill:#2a2d2c;stroke:#626965;stroke-width:2.2;filter:url(#shadow)}
+      .target.active{stroke:#08a84d;stroke-width:2.8}
+      .port{fill:#3c4240;stroke:#707773;stroke-width:1.6}
+      .check{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#18c45f;font-size:24px;font-weight:900}
+      .icon{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#ffffff;font-size:36px;font-weight:900;text-anchor:middle}
+      .code{font-family:Georgia,serif;fill:#f0b461;font-size:38px;text-anchor:middle}
+      .route{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#65a8ff;font-size:40px;text-anchor:middle}
+      .bolt{fill:#ff8a00;font-family:Inter,Segoe UI,Arial,sans-serif;font-size:22px;font-weight:900}
+    </style>
+  </defs>
+
+  <rect width="1600" height="760" rx="12" fill="#151716"/>
+  <rect width="1600" height="760" rx="12" fill="url(#stripes)" opacity="0.92"/>
+  <text x="48" y="50" class="top">Jul 6, 21:35:49</text>
+  <text x="48" y="82" class="success">Succeeded</text>
+  <text x="150" y="82" class="muted">in 6.02s | ID#106 | Autosave</text>
+
+  <path d="M190 382 H318" stroke="#10b957" stroke-width="4" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="254" y="356" class="item">1 item</text>
+  <path d="M438 382 H566" stroke="#10b957" stroke-width="4" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="502" y="356" class="item">1 item</text>
+  <path d="M686 382 H814" stroke="#10b957" stroke-width="4" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="750" y="356" class="item">1 item</text>
+  <path d="M934 382 H1062" stroke="#10b957" stroke-width="4" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="998" y="356" class="item">1 item</text>
+  <path d="M1182 382 H1266" stroke="#10b957" stroke-width="4" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="1224" y="356" class="item">1 item</text>
+
+  <g transform="translate(100 322)">
+    <text x="-32" y="56" class="bolt">⚡</text>
+    <rect class="node" width="90" height="90" rx="9"/>
+    <circle class="port" cx="90" cy="45" r="8"/>
+    <text x="45" y="58" class="icon">M</text>
+    <text x="75" y="82" class="check">✓</text>
+    <text x="45" y="126" class="label">Gmail Trigger</text>
+    <text x="45" y="148" class="sub">Gmail Trigger</text>
+  </g>
+
+  <g transform="translate(348 322)">
+    <circle class="port" cx="0" cy="45" r="8"/>
+    <rect class="node" width="90" height="90" rx="9"/>
+    <circle class="port" cx="90" cy="45" r="8"/>
+    <text x="45" y="58" class="icon">M</text>
+    <text x="75" y="82" class="check">✓</text>
+    <text x="45" y="126" class="label">Get a message</text>
+    <text x="45" y="148" class="sub">get: message</text>
+  </g>
+
+  <g transform="translate(596 322)">
+    <circle class="port" cx="0" cy="45" r="8"/>
+    <rect class="node" width="90" height="90" rx="9"/>
+    <circle class="port" cx="90" cy="45" r="8"/>
+    <text x="45" y="58" class="icon" style="fill:#898bff">✎</text>
+    <text x="75" y="82" class="check">✓</text>
+    <text x="45" y="126" class="label">Extract Email Metadata</text>
+    <text x="45" y="148" class="sub">manual</text>
+  </g>
+
+  <g transform="translate(844 322)">
+    <circle class="port" cx="0" cy="45" r="8"/>
+    <rect class="node" width="90" height="90" rx="9"/>
+    <circle class="port" cx="90" cy="45" r="8"/>
+    <text x="45" y="60" class="icon" style="fill:#898bff">◎</text>
+    <text x="75" y="82" class="check">✓</text>
+    <text x="45" y="126" class="label">HTTP Request</text>
+    <text x="45" y="148" class="sub">POST: api.anthropic...</text>
+  </g>
+
+  <g transform="translate(1092 322)">
+    <circle class="port" cx="0" cy="45" r="8"/>
+    <rect class="node" width="90" height="90" rx="9"/>
+    <circle class="port" cx="90" cy="45" r="8"/>
+    <text x="45" y="58" class="code">{ }</text>
+    <text x="75" y="82" class="check">✓</text>
+    <text x="45" y="126" class="label">Parse AI Response</text>
+  </g>
+
+  <g transform="translate(1276 292)">
+    <circle class="port" cx="0" cy="75" r="8"/>
+    <rect class="node" width="90" height="150" rx="9"/>
+    <circle class="port" cx="90" cy="35" r="8"/>
+    <circle class="port" cx="90" cy="75" r="8"/>
+    <circle class="port" cx="90" cy="115" r="8"/>
+    <text x="45" y="88" class="route">↬</text>
+    <text x="75" y="132" class="check">✓</text>
+    <text x="45" y="188" class="label">Route Email Action</text>
+    <text x="45" y="210" class="sub">mode: Rules</text>
+  </g>
+
+  <path d="M1366 327 C1396 290 1415 248 1455 220" stroke="#10b957" stroke-width="3.8" fill="none" marker-end="url(#arrowGreen)"/>
+  <path d="M1366 367 C1406 370 1430 390 1460 408" stroke="#666b68" stroke-width="3.5" fill="none" marker-end="url(#arrowGray)"/>
+  <path d="M1366 407 C1398 460 1418 494 1455 530" stroke="#666b68" stroke-width="3.5" fill="none" marker-end="url(#arrowGray)"/>
+  <text x="1385" y="315" class="item">0</text>
+  <text x="1385" y="357" class="item">1</text>
+  <text x="1385" y="399" class="item">2</text>
+
+  <g transform="translate(1460 160)">
+    <circle class="port" cx="0" cy="45" r="8"/>
+    <rect class="target active" width="82" height="82" rx="8"/>
+    <circle class="port" cx="82" cy="45" r="8"/>
+    <text x="41" y="55" class="icon" style="font-size:31px">M</text>
+    <text x="64" y="78" class="check">✓</text>
+    <text x="41" y="116" class="label">Important</text>
+    <text x="41" y="138" class="sub">addLabels: message</text>
+  </g>
+
+  <g transform="translate(1460 360)">
+    <circle class="port" cx="0" cy="45" r="8"/>
+    <rect class="target" width="82" height="82" rx="8"/>
+    <circle class="port" cx="82" cy="45" r="8"/>
+    <text x="41" y="55" class="icon" style="font-size:31px">M</text>
+    <text x="41" y="116" class="label">Phantom Inbox</text>
+    <text x="41" y="138" class="sub">addLabels: message</text>
+  </g>
+
+  <g transform="translate(1460 520)">
+    <circle class="port" cx="0" cy="45" r="8"/>
+    <rect class="target" width="82" height="82" rx="8"/>
+    <circle class="port" cx="82" cy="45" r="8"/>
+    <text x="41" y="55" class="icon" style="font-size:31px">M</text>
+    <text x="41" y="116" class="label">Trash</text>
+    <text x="41" y="138" class="sub">delete: message</text>
+  </g>
+</svg>

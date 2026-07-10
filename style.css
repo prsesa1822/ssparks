@@ -26,6 +26,8 @@ nav, .actions, .chips { display: flex; gap: 10px; flex-wrap: wrap; }
 .button { min-height: 38px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 8px; padding: 0 13px; background: transparent; color: #40515a; text-decoration: none; font-weight: 700; box-shadow: none; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease, color .18s ease; }
 .button:hover { transform: translateY(-1px); color: #123f47; background: rgba(255,255,255,.62); border-color: var(--line); box-shadow: 0 10px 26px rgba(28,38,42,.07); }
 .button.primary { background: var(--blue); color: #fff; border-color: var(--blue); box-shadow: 0 14px 34px rgba(23,109,120,.22); }
+.button.accent { background: var(--amber); color: #fff; border-color: var(--amber); box-shadow: 0 14px 34px rgba(232,105,45,.28); }
+.button.accent:hover { color: #fff; background: #d65a20; border-color: #d65a20; }
 .button.active { background: #f0ebe3; border-color: #ebe4da; color: #0f5762; }
 h1, h2, h3 { margin: 0; color: #172126; letter-spacing: 0; }
 h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 800; }

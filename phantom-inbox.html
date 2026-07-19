@@ -55,7 +55,7 @@
         <p>This n8n workflow view shows the complete routing path: Gmail trigger, message retrieval, metadata extraction, Claude API request, structured response parsing, and final Gmail action. No private message content, API keys, OAuth credentials, or inbox data are exposed.</p>
       </div>
       <figure class="evidence">
-        <img src="assets/phantom-inbox-workflow.png" alt="Phantom Inbox n8n workflow showing Gmail trigger, Claude API request, AI response parsing, and routing to Important, Phantom Inbox, or Trash" loading="lazy" />
+        <img src="assets/phantom-inbox-execution.png" alt="Phantom Inbox n8n workflow showing Gmail trigger, Claude API request, AI response parsing, and routing to Important, Phantom Inbox, or Trash" loading="lazy" />
         <figcaption class="caption">Workflow proof: the system executed successfully and routed the message through the expected AI classification path.</figcaption>
       </figure>
     </section>
@@ -114,7 +114,7 @@
         <article class="card" data-accent="teal"><h3>JSON escaping</h3><p>Raw email content broke request formatting until message bodies were safely serialized to handle newlines, quotes, and special characters.</p></article>
         <article class="card" data-accent="green"><h3>Gmail OAuth</h3><p>Configured Google Cloud credentials, redirect behavior, test users, and secure environment variables without exposing private credential details.</p></article>
         <article class="card"><h3>Async routing</h3><p>Used n8n Rules to branch into multiple paths based on Claude's recommendation and confidence level.</p></article>
-        <article class="card" data-accent="teal"><h3>Platform evaluation</h3><p>After spending significant time troubleshooting Railway, shifted deployment work to Render when the original platform stopped producing useful progress.</p></article>
+        <article class="card" data-accent="teal"><h3>Platform evaluation</h3><p>Migrated from initial deployment to Railway with persistent storage configuration and transitioned from Claude API to GPT API for cost efficiency and reliability when the original platform stopped producing useful progress.</p></article>
         <article class="card" data-accent="amber"><h3>Error recovery</h3><p>When one approach hit practical limits, changed tactics instead of forcing the same failing path repeatedly.</p></article>
       </div>
     </section>

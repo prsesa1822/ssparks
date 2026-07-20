@@ -104,3 +104,12 @@ footer a, .link { color: var(--teal); font-weight: 800; text-decoration: none; }
 .docker-card th { color: #c5d0d8; }
 .status-dot { width: 10px; height: 10px; display: inline-block; border-radius: 999px; background: #18b6a8; margin-right: 8px; }
 @media (max-width: 560px) { .docker-card { overflow-x: auto; } .docker-card table { min-width: 560px; } }
+
+
+/* Inbox Warden */
+.category-grid .card { position: relative; padding-top: 68px; }
+.category-icon { position: absolute; top: 20px; left: 24px; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 9px; background: var(--soft); font-size: 1.2rem; }
+.principles .card { min-height: 210px; }
+.principle-number { display: block; margin-bottom: 28px; color: var(--amber); font-family: Georgia, "Times New Roman", serif; font-size: 2rem; line-height: 1; }
+.principles .card[data-accent="teal"] .principle-number { color: var(--teal); }
+.principles .card[data-accent="green"] .principle-number { color: var(--green); }

@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Phantom Inbox | Sarah Sparks</title>
+  <meta name="description" content="Inbox Warden is Sarah Sparks' human-in-the-loop Gmail triage system built with n8n, the OpenAI Responses API, and the Gmail API." />
+  <title>Inbox Warden | Sarah Sparks</title>
   <link rel="stylesheet" href="style.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4ZPCLXSCS"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N4ZPCLXSCS');</script>
@@ -16,7 +17,7 @@
       <a class="button" href="index.html">Home</a>
       <a class="button" href="resume.html">Resume</a>
       <a class="button" href="resume-crypt.html">Resume Crypt</a>
-      <a class="button active" href="phantom-inbox.html">Phantom Inbox</a>
+      <a class="button active" href="phantom-inbox.html">Inbox Warden</a>
       <a class="button" href="local-ai-infrastructure.html">Local AI</a>
       <a class="button" href="customer-success-portfolio.html">CRM & Customer Ops</a>
       <a class="button" href="death-care-data.html">Death Care Data</a>
@@ -28,94 +29,135 @@
   <main>
     <section class="wrap hero">
       <div>
-        <span class="eyebrow">Featured AI Operations Project</span>
-        <h1>Phantom Inbox: intelligent email triage with Claude and n8n.</h1>
-        <p class="lede">An automated Gmail classification and routing pipeline that turns incoming email into structured decisions. The workflow extracts message context, asks Claude for a JSON recommendation, then routes each email to the inbox, trash, or a review label called Phantom Inbox.</p>
+        <span class="eyebrow">Featured AI Automation Project</span>
+        <h1>Inbox Warden: AI triage that protects human attention.</h1>
+        <p class="lede">An AI-powered Gmail triage system built with n8n, the OpenAI Responses API, and the Gmail API. Inbox Warden organizes incoming messages without automatically replying or taking high-risk action when the right decision is unclear.</p>
         <div class="actions" style="margin-top:24px">
-          <a class="button primary" href="#system">View system design</a>
-          <a class="button" href="#lessons">Lessons learned</a>
-          <a class="button" href="#interview">Interview explanation</a>
+          <a class="button primary" href="#workflow">See the workflow</a>
+          <a class="button" href="#categories">Explore the categories</a>
+          <a class="button" href="#philosophy">Design philosophy</a>
         </div>
       </div>
       <aside class="panel">
-        <span class="eyebrow">Project Signal</span>
-        <h3>AI-enabled workflow automation with real operational impact</h3>
-        <div class="metrics" style="grid-template-columns:1fr; margin-top:16px">
-          <div class="metric"><strong>15k+</strong><span>Unread emails before cleanup</span></div>
-          <div class="metric"><strong>6.6k</strong><span>Emails remaining after 24 hours</span></div>
-          <div class="metric"><strong>0</strong><span>Manual sorting steps after setup</span></div>
+        <span class="eyebrow">Safety by Design</span>
+        <h3>Useful automation with deliberate human control</h3>
+        <div class="metrics" style="grid-template-columns:1fr 1fr; margin-top:16px">
+          <div class="metric"><strong>6</strong><span>Purpose-built routes</span></div>
+          <div class="metric"><strong>0</strong><span>Automated replies</span></div>
+          <div class="metric"><strong>1</strong><span>Human review safety net</span></div>
+          <div class="metric"><strong>Safe</strong><span>Default when confidence is low</span></div>
         </div>
       </aside>
     </section>
 
-    <section class="wrap section">
+    <section class="wrap section" id="workflow">
       <div class="section-head">
         <span class="eyebrow">Workflow Evidence</span>
-        <h2>Proof of the automation running end to end.</h2>
-        <p>This n8n workflow view shows the complete routing path: Gmail trigger, message retrieval, metadata extraction, Claude API request, structured response parsing, and final Gmail action. No private message content, API keys, OAuth credentials, or inbox data are exposed.</p>
+        <h2>A successful Gmail-to-decision execution.</h2>
+        <p>The production workflow reads a new message, extracts the relevant context, sends it to OpenAI for structured classification, parses the JSON response, and applies the appropriate Gmail label. The screenshot contains no email content, credentials, or private inbox data.</p>
       </div>
       <figure class="evidence">
-        <img src="assets/phantom-inbox-execution.png" alt="Phantom Inbox n8n workflow showing Gmail trigger, Claude API request, AI response parsing, and routing to Important, Phantom Inbox, or Trash" loading="lazy" />
-        <figcaption class="caption">Workflow proof: the system executed successfully and routed the message through the expected AI classification path.</figcaption>
+        <img src="assets/inbox-warden-workflow.svg" alt="Inbox Warden n8n workflow showing Gmail trigger, message retrieval, metadata extraction, OpenAI classification, JSON parsing, decision routing, and six Gmail label outcomes" loading="eager" />
+        <figcaption class="caption">Inbox Warden execution #67 completed successfully, routing the message through the Review safety path.</figcaption>
       </figure>
     </section>
 
     <div class="band">
       <section class="wrap section">
         <div class="section-head">
-          <span class="eyebrow">The Problem</span>
-          <h2>Too many small inbox decisions, not enough scalable structure.</h2>
-          <p>A 15,000+ message backlog made the inbox hard to trust. Important messages, promotions, spam, and review-later items were all competing for attention. Basic rules were not enough because the decision often depended on sender context, intent, and professional relevance.</p>
+          <span class="eyebrow">Why I Built This</span>
+          <h2>Modern inboxes demand context, but context should not erase human judgment.</h2>
+          <p>Newsletters, promotions, financial alerts, applications, recruiter messages, LinkedIn notifications, and spam all compete for attention. Traditional filters miss context; fully autonomous systems can make costly mistakes by hiding or deleting the wrong message.</p>
         </div>
         <div class="grid-3">
-          <article class="card"><h3>Backlog pressure</h3><p>The goal was not just to delete old email. It was to create a repeatable system that could keep sorting new messages after the initial cleanup.</p></article>
-          <article class="card" data-accent="teal"><h3>Judgment layer</h3><p>Claude provided flexible classification where keyword filters were too brittle, especially for ambiguous or context-dependent messages.</p></article>
-          <article class="card" data-accent="green"><h3>Action layer</h3><p>The workflow had to execute real Gmail outcomes: keep important messages visible, move low-value messages out of the queue, or label items for later review.</p></article>
-        </div>
-      </section>
-    </div>
-
-    <section class="wrap section" id="system">
-      <div class="section-head">
-        <span class="eyebrow">System Design</span>
-        <h2>AI judgment constrained into safe workflow actions.</h2>
-        <p>The important design choice was not simply adding AI. It was using AI for flexible judgment, then forcing the response into structured JSON that n8n could parse and route deterministically.</p>
-      </div>
-      <div class="timeline">
-        <div class="step"><div class="num">1</div><div class="panel"><h3>Gmail trigger</h3><p>The workflow starts when a qualifying new email enters Gmail.</p></div></div>
-        <div class="step"><div class="num">2</div><div class="panel"><h3>Metadata extraction</h3><p>n8n extracts the subject, sender, body, and message context needed for classification.</p></div></div>
-        <div class="step"><div class="num">3</div><div class="panel"><h3>Claude classification</h3><p>Claude receives a focused prompt and returns category, confidence, action, and reasoning as structured JSON.</p></div></div>
-        <div class="step"><div class="num">4</div><div class="panel"><h3>Rules routing</h3><p>n8n parses the JSON and routes the message to the right branch based on action and confidence.</p></div></div>
-        <div class="step"><div class="num">5</div><div class="panel"><h3>Gmail action</h3><p>The workflow keeps important messages in the inbox, moves high-confidence low-value mail to trash, or applies the Phantom Inbox review label.</p></div></div>
-      </div>
-    </section>
-
-    <div class="band">
-      <section class="wrap section">
-        <div class="section-head">
-          <span class="eyebrow">Routing Logic</span>
-          <h2>Three outcomes, each with a clear operational purpose.</h2>
-        </div>
-        <div class="grid-3">
-          <article class="card" data-accent="green"><h3>Keep in Inbox</h3><p>Important, professional, or time-sensitive messages stay visible for normal review and response.</p></article>
-          <article class="card" data-accent="amber"><h3>Trash</h3><p>High-confidence promotions, spam, and low-value messages leave the active queue while retaining Gmail's normal recovery window.</p></article>
-          <article class="card" data-accent="teal"><h3>Phantom Inbox</h3><p>Review-worthy or ambiguous messages get labeled for later without competing with higher-priority work.</p></article>
+          <article class="card"><h3>Protect attention</h3><p>Move background information out of the primary decision queue so urgent, career-related communication is easier to see.</p></article>
+          <article class="card" data-accent="teal"><h3>Use context</h3><p>Classify the meaning of a message—not just a keyword or sender—using a focused prompt and structured response.</p></article>
+          <article class="card" data-accent="green"><h3>Keep humans in control</h3><p>Leave uncertain messages in the Inbox for review instead of forcing a risky classification.</p></article>
         </div>
       </section>
     </div>
 
     <section class="wrap section">
       <div class="section-head">
-        <span class="eyebrow">Technical Wins</span>
-        <h2>Practical automation work under real constraints.</h2>
+        <span class="eyebrow">Features</span>
+        <h2>From incoming message to safe, structured action.</h2>
       </div>
       <div class="grid-3">
-        <article class="card"><h3>Structured AI output</h3><p>Designed prompts that return parseable JSON so the workflow could make reliable downstream decisions.</p></article>
-        <article class="card" data-accent="teal"><h3>JSON escaping</h3><p>Raw email content broke request formatting until message bodies were safely serialized to handle newlines, quotes, and special characters.</p></article>
-        <article class="card" data-accent="green"><h3>Gmail OAuth</h3><p>Configured Google Cloud credentials, redirect behavior, test users, and secure environment variables without exposing private credential details.</p></article>
-        <article class="card"><h3>Async routing</h3><p>Used n8n Rules to branch into multiple paths based on Claude's recommendation and confidence level.</p></article>
-        <article class="card" data-accent="teal"><h3>Platform evaluation</h3><p>Migrated from initial deployment to Railway with persistent storage configuration and transitioned from Claude API to GPT API for cost efficiency and reliability when the original platform stopped producing useful progress.</p></article>
-        <article class="card" data-accent="amber"><h3>Error recovery</h3><p>When one approach hit practical limits, changed tactics instead of forcing the same failing path repeatedly.</p></article>
+        <article class="card"><h3>Automatic monitoring</h3><p>Watches for new Gmail messages and retrieves the full content needed for classification.</p></article>
+        <article class="card" data-accent="teal"><h3>Context-aware AI</h3><p>Uses the OpenAI Responses API to distinguish career mail, financial activity, notifications, background content, and junk.</p></article>
+        <article class="card" data-accent="green"><h3>Structured JSON</h3><p>Parses predictable machine-readable output before any routing decision reaches Gmail.</p></article>
+        <article class="card"><h3>Automatic labels</h3><p>Applies clear Gmail labels so each category has a useful place and purpose.</p></article>
+        <article class="card" data-accent="teal"><h3>Career prioritization</h3><p>Keeps recruiter outreach, interviews, assessments, offers, and time-sensitive requests prominent.</p></article>
+        <article class="card" data-accent="amber"><h3>Conservative fallback</h3><p>Avoids destructive action when confidence is low and sends ambiguous messages to Review.</p></article>
+      </div>
+    </section>
+
+    <div class="band">
+      <section class="wrap section">
+        <div class="section-head">
+          <span class="eyebrow">System Design</span>
+          <h2>AI reasoning constrained by deterministic routing.</h2>
+          <p>The model recommends a category. n8n validates and routes the structured result. Gmail performs only the pre-approved action associated with that route.</p>
+        </div>
+        <div class="timeline">
+          <div class="step"><div class="num">1</div><div class="panel"><h3>New email</h3><p>A Gmail trigger starts the workflow when a message arrives.</p></div></div>
+          <div class="step"><div class="num">2</div><div class="panel"><h3>Read full message</h3><p>The Gmail API retrieves the content and headers needed to understand the message.</p></div></div>
+          <div class="step"><div class="num">3</div><div class="panel"><h3>Extract metadata</h3><p>JavaScript prepares sender, subject, body, and other relevant context for a clean API request.</p></div></div>
+          <div class="step"><div class="num">4</div><div class="panel"><h3>OpenAI classification</h3><p>The Responses API evaluates the email against explicit category and safety instructions.</p></div></div>
+          <div class="step"><div class="num">5</div><div class="panel"><h3>Parse JSON</h3><p>The workflow converts the model output into validated fields the router can use.</p></div></div>
+          <div class="step"><div class="num">6</div><div class="panel"><h3>Decision router</h3><p>n8n applies the matching Gmail label—or defaults to Review when the classification is uncertain.</p></div></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="wrap section" id="categories">
+      <div class="section-head">
+        <span class="eyebrow">Classification Categories</span>
+        <h2>Six routes, each designed around a real attention decision.</h2>
+      </div>
+      <div class="grid-3 category-grid">
+        <article class="card" data-accent="amber"><span class="category-icon" aria-hidden="true">⭐</span><h3>Important</h3><p>High-priority career communication: recruiter outreach, hiring manager messages, interview invitations, technical assessments, offer letters, and time-sensitive application requests.</p></article>
+        <article class="card" data-accent="teal"><span class="category-icon" aria-hidden="true">💼</span><h3>LinkedIn</h3><p>LinkedIn-generated activity such as job alerts, application confirmations, connection updates, profile analytics, and post engagement.</p></article>
+        <article class="card" data-accent="green"><span class="category-icon" aria-hidden="true">💳</span><h3>Bills &amp; Purchases</h3><p>Bank alerts, declined card notices, statements, receipts, shipping updates, order confirmations, and payment reminders.</p></article>
+        <article class="card"><span class="category-icon" aria-hidden="true">👻</span><h3>Phantom</h3><p>The background inbox for useful but non-urgent information: newsletters, promotions, coupons, software updates, book deals, and marketing email.</p></article>
+        <article class="card" data-accent="teal"><span class="category-icon" aria-hidden="true">👀</span><h3>Review</h3><p>The safety net. Ambiguous messages intentionally remain in the Inbox for human judgment instead of being forced into another category.</p></article>
+        <article class="card" data-accent="amber"><span class="category-icon" aria-hidden="true">🗑️</span><h3>Trash</h3><p>Reserved for high-confidence phishing, malware, scam campaigns, fake invoices, and mass spam. When uncertain, Inbox Warden never chooses Trash.</p></article>
+      </div>
+    </section>
+
+    <div class="band" id="philosophy">
+      <section class="wrap section">
+        <div class="section-head">
+          <span class="eyebrow">Design Philosophy</span>
+          <h2>Fail safely.</h2>
+          <p>Inbox Warden is designed for accuracy and oversight, not maximum automation. The safest useful action is more valuable than the most aggressive one.</p>
+        </div>
+        <div class="grid-3 principles">
+          <article class="card"><strong class="principle-number">01</strong><h3>Important email should never disappear.</h3><p>Career communication stays visible and easy to act on.</p></article>
+          <article class="card" data-accent="teal"><strong class="principle-number">02</strong><h3>AI should admit uncertainty.</h3><p>Review is an intentional outcome, not an error state.</p></article>
+          <article class="card" data-accent="green"><strong class="principle-number">03</strong><h3>Humans make the final call.</h3><p>Low-confidence decisions stay recoverable and visible.</p></article>
+        </div>
+      </section>
+    </div>
+
+    <section class="wrap section">
+      <div class="section-head">
+        <span class="eyebrow">Technology</span>
+        <h2>A practical automation stack built for integration and control.</h2>
+      </div>
+      <div class="chips">
+        <span class="chip">n8n</span>
+        <span class="chip">OpenAI Responses API</span>
+        <span class="chip">Gmail API</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">JSON</span>
+        <span class="chip">Railway</span>
+        <span class="chip">OAuth 2.0</span>
+      </div>
+      <div class="grid-3" style="margin-top:24px">
+        <article class="card"><h3>Prompt engineering</h3><p>Defined meaningful categories, conservative boundaries, and structured outputs that support reliable downstream decisions.</p></article>
+        <article class="card" data-accent="teal"><h3>API orchestration</h3><p>Connected Gmail retrieval and labeling, OpenAI classification, OAuth authentication, and n8n routing into one workflow.</p></article>
+        <article class="card" data-accent="green"><h3>Human-centered systems</h3><p>Designed uncertainty, reversibility, and human review into the workflow instead of adding them after a failure.</p></article>
       </div>
     </section>
 
@@ -123,43 +165,37 @@
       <section class="wrap section">
         <div class="section-head">
           <span class="eyebrow">Lessons Learned</span>
-          <h2>AI can accelerate debugging, but it cannot replace systems thinking.</h2>
-          <p>I spent nearly an hour troubleshooting one issue with Claude. The breakthrough came when I realized I was repeating the same test path without changing the underlying variable. The issue was not only technical; the debugging process itself had become part of the problem.</p>
+          <h2>Production AI is a system of judgment, rules, and feedback.</h2>
+          <p>The goal is not to let AI make every decision. Reliable outcomes come from combining deterministic rules, human judgment, and AI reasoning—then refining the system through structured outputs, safe failure, and iterative prompt testing.</p>
         </div>
         <div class="grid-2">
-          <article class="card"><h3>The realization</h3><p>If every test repeats the same hidden assumption, the tool can keep producing plausible next steps while the system keeps failing for the same reason.</p></article>
-          <article class="card" data-accent="teal"><h3>The operating lesson</h3><p>AI can speed up troubleshooting, but the human still has to validate assumptions, inspect the system, and recognize when the test strategy needs to change.</p></article>
+          <article class="card"><h3>Reliability beats autonomy</h3><p>A workflow that safely escalates uncertainty is more useful than one that confidently automates every edge case.</p></article>
+          <article class="card" data-accent="teal"><h3>Structure enables trust</h3><p>Explicit categories and parseable JSON turn a flexible model response into an auditable operational decision.</p></article>
         </div>
       </section>
     </div>
 
     <section class="wrap section">
       <div class="section-head">
-        <span class="eyebrow">Skills Demonstrated</span>
-        <h2>What this proves to a hiring manager.</h2>
+        <span class="eyebrow">Future Improvements</span>
+        <h2>Where Inbox Warden goes next.</h2>
       </div>
       <div class="grid-3">
-        <article class="card"><h3>AI workflow design</h3><p>Used an LLM where judgment was useful and constrained its output where reliability mattered.</p></article>
-        <article class="card" data-accent="teal"><h3>API orchestration</h3><p>Coordinated Gmail, Claude, OAuth, and n8n into one operating workflow.</p></article>
-        <article class="card" data-accent="green"><h3>Operations thinking</h3><p>Turned a messy recurring problem into a system with clear inputs, rules, actions, and review boundaries.</p></article>
-        <article class="card"><h3>Debugging discipline</h3><p>Worked through formatting, authentication, callback, deployment, and routing issues without exposing private data.</p></article>
-        <article class="card" data-accent="teal"><h3>Platform judgment</h3><p>Recognized when a deployment path was consuming more time than it was worth and moved toward Render.</p></article>
-        <article class="card" data-accent="amber"><h3>Customer Ops relevance</h3><p>Shows the same habits needed in RevOps and Customer Ops: triage, prioritization, data hygiene, and process ownership.</p></article>
+        <article class="card"><h3>Smarter routing</h3><p>Add confidence-based thresholds and deterministic rules before AI classification to reduce token usage.</p></article>
+        <article class="card" data-accent="teal"><h3>Feedback and analytics</h3><p>Learn from manual label corrections and summarize weekly inbox patterns in an analytics dashboard.</p></article>
+        <article class="card" data-accent="green"><h3>Broader configuration</h3><p>Support Outlook and Microsoft 365 plus user-configurable categories and policies.</p></article>
       </div>
     </section>
 
-    <div class="band" id="interview">
+    <div class="band">
       <section class="wrap section">
-        <div class="section-head">
-          <span class="eyebrow">How I'd Explain This in an Interview</span>
-          <h2>A practical AI operations system, not just an AI demo.</h2>
-        </div>
         <div class="panel">
-          <p style="font-size:1.12rem">I used AI where flexible judgment was valuable, then constrained the output into structured JSON so the workflow could make safe, deterministic decisions. The result was not just an AI tool. It was an operational system that could classify, route, and reduce inbox noise without constant manual sorting.</p>
+          <span class="eyebrow">Built by Sarah Sparks</span>
+          <h2 style="margin-top:10px">AI workflow automation with human judgment designed in.</h2>
+          <p style="font-size:1.12rem">Inbox Warden demonstrates AI workflow design, prompt engineering, API integration, structured-output handling, and safety-first operational thinking using n8n.</p>
           <div class="actions" style="margin-top:24px">
             <a class="button primary" href="https://github.com/prsesa1822/ssparks" target="_blank" rel="noreferrer">View GitHub Repo</a>
-            <a class="button" href="https://www.linkedin.com/in/ssparks1822/recent-activity/all/" target="_blank" rel="noreferrer">Read LinkedIn Case Study</a>
-            <span class="button" aria-disabled="true" style="opacity:.58; cursor:not-allowed">Live Demo Coming Soon</span>
+            <a class="button" href="index.html">Back to Portfolio</a>
           </div>
         </div>
       </section>

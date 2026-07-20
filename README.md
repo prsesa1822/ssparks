@@ -15,6 +15,7 @@ The live site consolidates Sarah's portfolio work into one place:
 
 - `index.html` is the portfolio homepage
 - `resume.html` is the curated web resume
+- `phantom-inbox.html` is the Inbox Warden AI Gmail triage case study (legacy URL preserved for compatibility)
 - `customer-success-portfolio.html` is the combined CRM & Customer Operations page
 - `crm-governance-assessment.html` redirects old CRM case study links to the combined page
 - `dragon-hoard-tracker.html` is the featured Dragon's Hoard Tracker project page

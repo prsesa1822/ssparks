@@ -3,7 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sarah Sparks | AI Operations & Automation Portfolio</title>
+  <title>Sarah Sparks | AI Operations, Workflow Automation & CRM Systems</title>
+  <meta name="description" content="Technical portfolio of Sarah Sparks, featuring human-in-the-loop AI systems, workflow automation, CRM data-quality analysis, local AI infrastructure, RAG, and customer operations." />
+  <meta property="og:title" content="Sarah Sparks | AI Operations, Workflow Automation & CRM Systems" />
+  <meta property="og:description" content="Human-in-the-loop AI systems, workflow automation, CRM data-quality analysis, local AI infrastructure, RAG, and customer operations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://prsesa1822.github.io/ssparks/" />
   <link rel="stylesheet" href="style.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4ZPCLXSCS"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N4ZPCLXSCS');</script>
@@ -11,16 +16,16 @@
 </head>
 <body>
   <header>
-    <div class="brand"><strong>Sarah Sparks</strong><span>AI Operations | Automation | Customer Ops</span></div>
+    <div class="brand"><strong>Sarah Sparks</strong><span>AI Operations | Workflow Automation | CRM Systems</span></div>
     <nav aria-label="Portfolio navigation">
       <a class="button active" href="index.html">Home</a>
       <a class="button" href="resume.html">Resume</a>
-      <a class="button" href="resume-crypt.html">Resume Crypt</a>
       <a class="button" href="phantom-inbox.html">Inbox Warden</a>
+      <a class="button" href="resume-crypt.html">Resume Crypt</a>
       <a class="button" href="local-ai-infrastructure.html">Local AI</a>
-      <a class="button" href="customer-success-portfolio.html">CRM & Customer Ops</a>
+      <a class="button" href="customer-success-portfolio.html">CRM &amp; Customer Ops</a>
       <a class="button" href="death-care-data.html">Death Care Data</a>
-      <a class="button" href="dragon-hoard-tracker.html">Dragon's Hoard</a>
+      <a class="button" href="dragon-hoard-tracker.html">Dragon Hoard</a>
       <a class="button" href="https://organizedchaosops.com/" target="_blank" rel="noreferrer">About Me</a>
     </nav>
   </header>
@@ -28,25 +33,25 @@
   <main>
     <section class="wrap hero">
       <div>
-        <span class="eyebrow">Open to AI operations, automation, RevOps, and customer ops roles</span>
-        <h1>Sarah Sparks - AI operations, automation, and customer systems.</h1>
-        <p class="lede">I build practical systems for messy work: AI-assisted triage, workflow automation, CRM hygiene, local AI tooling, and operations processes that make follow-up easier to trust.</p>
+        <span class="eyebrow">Seeking full-time remote roles</span>
+        <h1>Sarah Sparks: AI operations, workflow automation, and customer systems.</h1>
+        <p class="lede">I identify operational problems, build practical AI-assisted workflows, document how they work, and keep human judgment in the loop. My strongest evidence spans inbox triage, CRM data quality, customer operations, local AI, RAG, and API-connected automation.</p>
         <div class="actions" style="margin-top:24px">
-          <a class="button accent" href="https://resume-crypt.onrender.com" target="_blank" rel="noreferrer">Try Resume Crypt live</a>
           <a class="button primary" href="phantom-inbox.html">View Inbox Warden</a>
-          <a class="button" href="local-ai-infrastructure.html">View local AI systems</a>
-          <a class="button" href="customer-success-portfolio.html">View CRM & customer ops proof</a>
+          <a class="button accent" href="resume-crypt.html">Explore Resume Crypt</a>
+          <a class="button" href="resume.html">Read résumé</a>
         </div>
       </div>
       <aside class="panel">
+        <span class="status">Case study</span>
         <span class="eyebrow">Featured Project</span>
         <h3>Inbox Warden</h3>
-        <p>Human-in-the-loop Gmail triage built with n8n and the OpenAI Responses API. It protects attention by organizing incoming mail while keeping uncertain decisions visible for human review.</p>
+        <p>Human-in-the-loop Gmail triage built with n8n and the OpenAI Responses API. It organizes incoming mail without sending replies or hiding uncertain decisions.</p>
         <div class="metrics" style="grid-template-columns:1fr 1fr; margin-top:16px">
-          <div class="metric"><strong>6</strong><span>Purpose-built routes</span></div>
+          <div class="metric"><strong>6</strong><span>Purpose-built categories</span></div>
           <div class="metric"><strong>0</strong><span>Automated replies</span></div>
-          <div class="metric"><strong>1</strong><span>Human review safety net</span></div>
-          <div class="metric"><strong>Safe</strong><span>Default when confidence is low</span></div>
+          <div class="metric"><strong>1</strong><span>Review safety net</span></div>
+          <div class="metric"><strong>Safe</strong><span>Default under uncertainty</span></div>
         </div>
       </aside>
     </section>
@@ -55,91 +60,61 @@
       <section class="wrap section">
         <div class="section-head">
           <span class="eyebrow">Featured Project</span>
-          <h2>Inbox Warden: safe AI triage for the modern inbox.</h2>
-          <p>An n8n workflow that reads incoming Gmail messages, uses the OpenAI Responses API for structured classification, and routes each message into a useful category. Uncertain email stays visible for human judgment; high-risk automation is deliberately constrained.</p>
+          <h2>Inbox Warden: safe AI triage for a crowded inbox.</h2>
+          <p>The workflow retrieves complete Gmail messages, extracts metadata, asks the OpenAI Responses API for structured JSON, and uses deterministic n8n routing to apply one of six labels. Review remains in the inbox for human judgment; Trash is reserved for high-confidence junk.</p>
         </div>
         <div class="grid-3">
-          <article class="card">
-            <h3>What it does</h3>
-            <p>Classifies full message context and applies one of six Gmail labels: Important, LinkedIn, Bills &amp; Purchases, Phantom, Review, or Trash.</p>
-          </article>
-          <article class="card" data-accent="teal">
-            <h3>Why it matters</h3>
-            <p>Protects attention without pretending AI should make every decision. Important career email remains visible, background content moves aside, and ambiguity goes to Review.</p>
-          </article>
-          <article class="card" data-accent="green">
-            <h3>What it proves</h3>
-            <p>I can combine prompt engineering, structured outputs, API integration, deterministic routing, and human-centered safeguards into a working operational system.</p>
-          </article>
+          <article class="card"><h3>Context-aware classification</h3><p>Important, LinkedIn, Bills &amp; Purchases, Phantom, Review, and Trash provide useful separation without automated replies.</p></article>
+          <article class="card" data-accent="teal"><h3>Human-in-the-loop design</h3><p>Low-confidence messages are intentionally left visible rather than forced into a risky category.</p></article>
+          <article class="card" data-accent="green"><h3>Operational proof</h3><p>The project combines prompt design, structured outputs, APIs, OAuth, JavaScript parsing, and routing safeguards.</p></article>
         </div>
-        <div class="chips" style="margin-top:18px">
-          <span class="chip">n8n</span><span class="chip">OpenAI Responses API</span><span class="chip">Gmail API</span><span class="chip">OAuth 2.0</span><span class="chip">JavaScript</span><span class="chip">JSON</span><span class="chip">Railway</span>
-        </div>
-        <p style="margin-top:22px"><a class="button primary" href="phantom-inbox.html">Open Inbox Warden case study</a></p>
+        <p style="margin-top:22px"><a class="button primary" href="phantom-inbox.html">Open the case study</a></p>
       </section>
     </div>
 
     <section class="wrap section">
       <div class="section-head">
         <span class="eyebrow">Selected Work</span>
-        <h2>Case studies that show systems thinking in action.</h2>
-        <p>Each project walks through the problem, my approach, the tools and skills, and what it proves to hiring managers in AI Enablement, RevOps, Automation, and Customer Operations.</p>
+        <h2>Projects at different stages of maturity.</h2>
+        <p>Status labels separate live tools, self-hosted systems, documented case studies, supporting analysis, and earlier work.</p>
       </div>
       <div class="grid-3">
-        <article class="card" data-accent="amber">
-          <h3>Project #1: Inbox Warden</h3>
-          <p>Safety-first Gmail triage using n8n, the OpenAI Responses API, structured JSON, six purpose-built categories, and a human review fallback.</p>
-          <p><a class="link" href="phantom-inbox.html">View featured project</a></p>
-        </article>
-        <article class="card" data-accent="teal">
-          <h3>Project #2: Local AI Infrastructure</h3>
-          <p>Self-hosted systems project showing Tasker-to-Telegram automation, Docker-hosted Open WebUI, Ollama models, and RAG knowledge collections.</p>
-          <p><a class="link" href="local-ai-infrastructure.html">View systems project</a></p>
-        </article>
-        <article class="card" data-accent="green">
-          <h3>Project #3: CRM & Customer Operations</h3>
-          <p>Customer lifecycle support, CRM hygiene, contactability risk, governance findings, remediation planning, and executive-ready recommendations.</p>
-          <p><a class="link" href="customer-success-portfolio.html">Open CRM & customer ops</a></p>
-        </article>
-        <article class="card">
-          <h3>Project #4: Dragon's Hoard Tracker</h3>
-          <p>Fantasy-themed career CRM and knowledge management system showing pipeline design, opportunity scoring, recruiter tracking, analytics, gamification, and AI-assisted product development.</p>
-          <p><a class="link" href="dragon-hoard-tracker.html">View project details</a></p>
-        </article>
-        <article class="card" data-accent="amber">
-          <h3>Project #5: Resume Crypt</h3>
-          <p>Live AI resume scanner, tailored resume builder, cover letter generator, and integrity checker built around evidence-first prompting and traceability.</p>
-          <p><a class="link" href="resume-crypt.html">View case study</a></p>
-        </article>
-        <article class="card" data-accent="teal">
-          <h3>Supporting Project: Death Care in Data</h3>
-          <p>Analytics project with charts, trend analysis, visualization, and business communication. Kept as supporting evidence rather than the main portfolio story.</p>
-          <p><a class="link" href="death-care-data.html">View analytics project</a></p>
-        </article>
+        <article class="card" data-accent="amber"><span class="status">Case study</span><h3>Inbox Warden</h3><p>Safety-first Gmail triage using n8n, OpenAI structured outputs, six categories, and a human review fallback.</p><p><a class="link" href="phantom-inbox.html">View featured project</a></p></article>
+        <article class="card" data-accent="green"><span class="status">Live</span><h3>Resume Crypt</h3><p>An evidence-first scanner and tailoring assistant with fit analysis, a tailored résumé, cover letter, and integrity review.</p><p><a class="link" href="resume-crypt.html">View live case study</a></p></article>
+        <article class="card" data-accent="teal"><span class="status">Self-hosted</span><h3>Local AI Infrastructure</h3><p>Ollama and Open WebUI in Docker, local RAG collections, and Tasker-to-Telegram location reminders.</p><p><a class="link" href="local-ai-infrastructure.html">View systems project</a></p></article>
+        <article class="card"><span class="status">Case study</span><h3>CRM &amp; Customer Operations</h3><p>A self-initiated 883-record audit, contactability findings, a proposed remediation plan, and frontline account support.</p><p><a class="link" href="customer-success-portfolio.html">Open case study</a></p></article>
+        <article class="card" data-accent="amber"><span class="status">Supporting</span><h3>Death Care in Data</h3><p>A focused descriptive comparison of projected U.S. cremation and burial rates using an industry source.</p><p><a class="link" href="death-care-data.html">View supporting analysis</a></p></article>
+        <article class="card"><span class="status">Earlier project</span><h3>Dragon Hoard</h3><p>An earlier AI career-document and professional-communication tool built with Claude API and token-protected access.</p><p><a class="link" href="dragon-hoard-tracker.html">View project details</a></p></article>
       </div>
     </section>
 
     <section class="wrap section">
-      <div class="section-head"><span class="eyebrow">Operational Impact</span><h2>Why hire Sarah?</h2></div>
+      <div class="section-head"><span class="eyebrow">Evidence</span><h2>Specific proof, without inflated claims.</h2></div>
       <div class="metrics">
-        <div class="metric"><strong>AI</strong><span>Workflow design and structured outputs</span></div>
-        <div class="metric"><strong>APIs</strong><span>Gmail, OpenAI Responses, OAuth, Telegram</span></div>
-        <div class="metric"><strong>n8n</strong><span>Automation and routing logic</span></div>
-        <div class="metric"><strong>1,000+</strong><span>CRM records managed</span></div>
-        <div class="metric"><strong>115</strong><span>Active accounts managed</span></div>
-        <div class="metric"><strong>Recovery</strong><span>Complaint resolution experience</span></div>
+        <div class="metric"><strong>883</strong><span>HubSpot records reviewed in a self-initiated audit</span></div>
+        <div class="metric"><strong>811</strong><span>Records found without email addresses</span></div>
+        <div class="metric"><strong>115</strong><span>Active customer accounts managed</span></div>
+        <div class="metric"><strong>1,000+</strong><span>HubSpot contact records maintained</span></div>
+        <div class="metric"><strong>8/10</strong><span>Months earning sales bonus</span></div>
+        <div class="metric"><strong>Top 3</strong><span>Of 11 regional counselors for several consecutive months</span></div>
+      </div>
+      <p class="source-note">The CRM audit and proposed 30-60-90 remediation plan were self-directed and were not formally adopted.</p>
+    </section>
+
+    <section class="wrap section">
+      <div class="section-head"><span class="eyebrow">How I Work</span><h2>Practical systems, careful boundaries, clear documentation.</h2></div>
+      <div class="grid-3">
+        <article class="card"><h3>Find the operational friction</h3><p>I start with the record, workflow, or handoff that is slowing people down.</p></article>
+        <article class="card" data-accent="teal"><h3>Choose the right level of automation</h3><p>I combine rules, APIs, and AI only where each is useful, with a human fallback for uncertain decisions.</p></article>
+        <article class="card" data-accent="green"><h3>Make the work reviewable</h3><p>I document decisions, surface limitations, and distinguish working evidence from proposals and future ideas.</p></article>
       </div>
     </section>
 
     <section class="wrap section">
       <div class="section-head">
-        <span class="eyebrow">Operating Style</span>
-        <h2>Practical automation, grounded in customer operations.</h2>
-        <p>I am most useful where work is messy, repetitive, and important: inboxes, CRMs, follow-up queues, customer records, onboarding handoffs, internal workflows, and AI-assisted systems that need human judgment designed into them.</p>
-      </div>
-      <div class="grid-2">
-        <article class="card"><h3>Systems over one-off fixes</h3><p>I look for the repeatable pattern behind the problem, then build a workflow that can keep working after the first cleanup.</p></article>
-        <article class="card" data-accent="teal"><h3>AI with boundaries</h3><p>I use AI where flexible judgment is valuable, then constrain outputs so operations teams can trust the next action.</p></article>
+        <span class="eyebrow">A little context</span>
+        <h2>The person behind the systems.</h2>
+        <p>I live in Alabama, am engaged to an Army veteran, and am raising a twelve-year-old with five cats—including Paris, a tortie with very strong opinions. For the longer personal version, visit <a class="link" href="https://organizedchaosops.com/" target="_blank" rel="noreferrer">About Me</a>.</p>
       </div>
     </section>
   </main>

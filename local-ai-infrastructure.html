@@ -4,6 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Local AI Infrastructure & Personal Automation | Sarah Sparks</title>
+  <meta name="description" content="A self-hosted local AI workspace with Ollama, Open WebUI, Docker, RAG collections, and Tasker-to-Telegram automation." />
+  <meta property="og:title" content="Local AI Infrastructure | Sarah Sparks" />
+  <meta property="og:description" content="Self-hosted local models, Docker services, RAG collections, and location-triggered notification automation." />
+  <meta property="og:type" content="article" />
   <link rel="stylesheet" href="style.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-N4ZPCLXSCS"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-N4ZPCLXSCS');</script>
@@ -11,16 +15,16 @@
 </head>
 <body>
   <header>
-    <div class="brand"><strong>Sarah Sparks</strong><span>AI Operations | Automation | Customer Ops</span></div>
+    <div class="brand"><strong>Sarah Sparks</strong><span>AI Operations | Workflow Automation | CRM Systems</span></div>
     <nav aria-label="Portfolio navigation">
       <a class="button" href="index.html">Home</a>
       <a class="button" href="resume.html">Resume</a>
-      <a class="button" href="resume-crypt.html">Resume Crypt</a>
       <a class="button" href="phantom-inbox.html">Inbox Warden</a>
+      <a class="button" href="resume-crypt.html">Resume Crypt</a>
       <a class="button active" href="local-ai-infrastructure.html">Local AI</a>
       <a class="button" href="customer-success-portfolio.html">CRM & Customer Ops</a>
       <a class="button" href="death-care-data.html">Death Care Data</a>
-      <a class="button" href="dragon-hoard-tracker.html">Dragon's Hoard</a>
+      <a class="button" href="dragon-hoard-tracker.html">Dragon Hoard</a>
       <a class="button" href="https://organizedchaosops.com/" target="_blank" rel="noreferrer">About Me</a>
     </nav>
   </header>
@@ -28,9 +32,10 @@
   <main>
     <section class="wrap hero">
       <div>
+        <span class="status">Self-hosted</span>
         <span class="eyebrow">Featured Systems Project</span>
         <h1>Local AI Infrastructure & Personal Automation</h1>
-        <p class="lede">A self-hosted local AI workspace paired with a practical mobile automation: Tasker sends clock-in and clock-out reminders through Telegram, while Docker-hosted Open WebUI and Ollama provide local LLM access and RAG knowledge collections without relying on a cloud AI provider for inference.</p>
+        <p class="lede">A self-hosted local AI workspace on an AMD Ryzen AI 9 365 system with an NVIDIA RTX 5070 Ti and 32GB DDR5, paired with a practical mobile automation: Tasker sends clock-in and clock-out reminders through Telegram, while Docker-hosted Open WebUI and Ollama provide local LLM access and RAG knowledge collections without relying on a cloud AI provider for inference.</p>
         <div class="actions" style="margin-top:24px">
           <a class="button primary" href="#architecture">View architecture</a>
           <a class="button" href="#evidence">See evidence</a>
@@ -91,7 +96,7 @@
               <line x1="944" y1="416" x2="833" y2="566" class="chart-arrow" />
               <rect x="280" y="568" width="290" height="62" rx="12" class="chart-node green" />
               <text x="425" y="593" class="chart-node-title">Ollama models</text>
-              <text x="425" y="617" class="chart-node-subtitle">Llama 3.1, Gemma 3, Phi-4, Qwen3</text>
+              <text x="425" y="617" class="chart-node-subtitle">Llama, Gemma, Qwen, and Mistral</text>
               <rect x="690" y="568" width="290" height="62" rx="12" class="chart-node teal" />
               <text x="835" y="593" class="chart-node-title">RAG knowledge</text>
               <text x="835" y="617" class="chart-node-subtitle">2 project collections</text>
@@ -102,7 +107,7 @@
         <div class="grid-3">
           <article class="card"><h3>Reminder trigger</h3><p>Tasker watches a 400m workplace geofence and sends the relevant clock-in or clock-out alert through Telegram when the location event fires.</p></article>
           <article class="card" data-accent="teal"><h3>Container host</h3><p>Docker runs Open WebUI alongside a separate n8n container, giving each service its own port, lifecycle, and debugging surface.</p></article>
-          <article class="card" data-accent="green"><h3>Local AI</h3><p>Open WebUI fronts Ollama, which runs Llama 3.1 8B, Gemma 3 12B, Phi-4, and Qwen3 locally.</p></article>
+          <article class="card" data-accent="green"><h3>Local AI</h3><p>Open WebUI fronts Ollama, which runs Llama, Gemma 3 12B, Qwen, and Mistral locally.</p></article>
         </div>
       </section>
     </div>
@@ -111,13 +116,9 @@
       <div class="section-head">
         <span class="eyebrow">System Evidence</span>
         <h2>Proof the systems are running.</h2>
-        <p>Clean screenshots from the live local setup show the Telegram reminder output, container host, RAG collections, and local model inventory.</p>
+        <p>Privacy-reviewed evidence from the local setup shows the container host, RAG collections, and local model inventory. The personal Telegram screenshot was removed because it exposed routine and profile details.</p>
       </div>
-      <figure class="evidence">
-        <img src="assets/local-ai-telegram-proof.webp" alt="Telegram bot alerts showing clock-in, clock-out, battery, and bedtime reminders" loading="lazy" />
-        <figcaption class="caption">Telegram output proof: Tasker-triggered reminders become visible clock-in and clock-out prompts, with the internal Chaos Command personality left intact.</figcaption>
-      </figure>
-      <figure class="evidence docker-proof">
+<figure class="evidence docker-proof">
         <div class="docker-card" role="img" aria-label="Clean Docker proof card listing two running containers: n8n and open-webui">
           <div class="docker-top"><strong>Docker Desktop</strong><span>Containers</span></div>
           <div class="docker-metrics"><span><strong>0.00%</strong> CPU usage</span><span><strong>14.91 GB</strong> memory available</span><span><strong>2</strong> running items</span></div>
@@ -136,7 +137,7 @@
         <figcaption class="caption">RAG layer: Open WebUI knowledge collections for project-specific retrieval.</figcaption>
       </figure>
       <figure class="evidence">
-        <img src="assets/local-ai-ollama-models.webp" alt="Ollama model list showing Llama 3.1 8B, Gemma 3 12B, Phi-4, and Qwen3" loading="lazy" />
+        <img src="assets/local-ai-ollama-models.webp" alt="Ollama model list showing Llama, Gemma 3 12B, Qwen, and Mistral" loading="lazy" />
         <figcaption class="caption">Local model layer: Ollama inventory showing the four models available to Open WebUI.</figcaption>
       </figure>
     </section>
@@ -151,7 +152,7 @@
           <div class="step"><div class="num">1</div><div class="panel"><h3>Mobile trigger</h3><p>A Tasker geofence profile watches for entry and exit from a 400m workplace radius.</p></div></div>
           <div class="step"><div class="num">2</div><div class="panel"><h3>Telegram reminder</h3><p>When the location event fires, Tasker sends the appropriate clock-in or clock-out message through a personal Telegram bot.</p></div></div>
           <div class="step"><div class="num">3</div><div class="panel"><h3>Container host</h3><p>Docker runs Open WebUI and a separate n8n workspace as independently managed containers on the same host.</p></div></div>
-          <div class="step"><div class="num">4</div><div class="panel"><h3>Local AI layer</h3><p>Open WebUI fronts a local Ollama installation with Llama 3.1 8B, Gemma 3 12B, Phi-4, and Qwen3. Two RAG knowledge collections support grounded project-specific queries.</p></div></div>
+          <div class="step"><div class="num">4</div><div class="panel"><h3>Local AI layer</h3><p>Open WebUI fronts a local Ollama installation with Llama, Gemma 3 12B, Qwen, and Mistral. Two RAG knowledge collections support grounded project-specific queries.</p></div></div>
         </div>
       </section>
     </div>
@@ -178,7 +179,7 @@
           <h2>Tools and concepts used.</h2>
         </div>
         <div class="chips">
-          <span class="chip">Tasker</span><span class="chip">Geofencing</span><span class="chip">Telegram Bot API</span><span class="chip">Docker</span><span class="chip">n8n</span><span class="chip">Open WebUI</span><span class="chip">Ollama</span><span class="chip">Llama 3.1 8B</span><span class="chip">Gemma 3 12B</span><span class="chip">Phi-4</span><span class="chip">Qwen3</span><span class="chip">RAG</span><span class="chip">Local LLMs</span>
+          <span class="chip">Tasker</span><span class="chip">Geofencing</span><span class="chip">Telegram Bot API</span><span class="chip">Docker</span><span class="chip">n8n</span><span class="chip">Open WebUI</span><span class="chip">Ollama</span><span class="chip">Llama</span><span class="chip">Gemma 3 12B</span><span class="chip">Qwen</span><span class="chip">Mistral</span><span class="chip">RAG</span><span class="chip">Local LLMs</span>
         </div>
       </section>
     </div>
